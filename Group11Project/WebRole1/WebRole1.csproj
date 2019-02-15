@@ -98,6 +98,7 @@
     <Content Include="LogIn.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterSuccessful.aspx" />
+    <Content Include="TempFunction.aspx" />
     <Content Include="Web.config" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="RegisterSuccessful.aspx.designer.cs">
       <DependentUpon>RegisterSuccessful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TempFunction.aspx.cs">
+      <DependentUpon>TempFunction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TempFunction.aspx.designer.cs">
+      <DependentUpon>TempFunction.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebRole.cs" />
     <Compile Include="WelcomePage.aspx.cs">

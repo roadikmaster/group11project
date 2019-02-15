@@ -18,7 +18,8 @@
         </div>
         &nbsp;
         <asp:Button ID="AccountProfileButton" runat="server" OnClick="AccountProfileButton_Click" Text="Account Profile" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="FunctionButton" runat="server" Text="Function" OnClick="FunctionButton_Click" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="LogOutButton" runat="server" OnClick="LogOutButton_Click" style="margin-left: 0px" Text="Log Out" />
         <div style="margin-left: 80px">
         </div>

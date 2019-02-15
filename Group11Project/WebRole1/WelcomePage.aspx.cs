@@ -27,5 +27,10 @@ namespace WebRole1
         {
             Response.Redirect("AccountProfile.aspx");
         }
+
+        protected void FunctionButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TempFunction.aspx");
+        }
     }
 }
