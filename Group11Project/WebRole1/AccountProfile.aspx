@@ -11,10 +11,14 @@
         <div>
             Your Account Profile<br />
             <br />
-            Account ID:
+            Account ID:&nbsp;
+            <asp:Label ID="Label1" runat="server"></asp:Label>
             <br />
-            Username:<br />
-            Email:<br />
+            Username:&nbsp;&nbsp;&nbsp; <asp:Label ID="Label2" runat="server"></asp:Label>
+            <br />
+            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server"></asp:Label>
+            <br />
             <br />
             <asp:Button ID="BackButton" runat="server" OnClick="BackButton_Click" Text="Back" />
         </div>

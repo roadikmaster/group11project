@@ -11,9 +11,9 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Value"].ToString() != null)
+            if (Session["username"].ToString() != null)
             {
-                Label2.Text = Session["Value"].ToString();
+                Label2.Text = Session["username"].ToString();
             }
             
         }

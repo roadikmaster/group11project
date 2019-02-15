@@ -11,7 +11,9 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Label1.Text = Session["accountID"].ToString();
+            Label2.Text = Session["username"].ToString();
+            Label3.Text = Session["email"].ToString();
         }
 
         protected void BackButton_Click(object sender, EventArgs e)

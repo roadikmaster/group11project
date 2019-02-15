@@ -41,8 +41,10 @@ namespace WebRole1
                         {
                             if (reader.Read())
                             {
-                                Session["Value"] = username.ToString();
-                                Response.Redirect("WelcomePage.aspx");
+                                Session["username"] = username;
+                                Session["accountID"] = reader["accountID"].ToString();
+                                Session["email"] = reader["email"].ToString();
+                                Server.Transfer("WelcomePage.aspx");
                             }
                             else
                             {
