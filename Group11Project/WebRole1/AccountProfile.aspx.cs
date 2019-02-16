@@ -22,5 +22,15 @@ namespace WebRole1
         {
             Response.Redirect("WelcomePage.aspx");
         }
+
+        protected void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
+        }
+
+        protected void EditAccountInfoButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EditAccountProfile.aspx");
+        }
     }
 }

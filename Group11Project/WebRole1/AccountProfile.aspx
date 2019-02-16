@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 252px">
             Your Account Profile<br />
             <br />
             Account ID:&nbsp;
@@ -18,6 +18,13 @@
             <br />
             Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server"></asp:Label>
+            <br />
+            <br />
+            <asp:LinkButton ID="ChangePasswordButton" runat="server" OnClick="ChangePasswordButton_Click">Change Password</asp:LinkButton>
+            <br />
+            <asp:LinkButton ID="EditAccountInfoButton" runat="server" OnClick="EditAccountInfoButton_Click">Edit Account Info</asp:LinkButton>
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
             <asp:Button ID="BackButton" runat="server" OnClick="BackButton_Click" Text="Back" />

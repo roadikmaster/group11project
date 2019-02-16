@@ -10,7 +10,7 @@
 namespace WebRole1 {
     
     
-    public partial class AccountProfile {
+    public partial class ChangePassword {
         
         /// <summary>
         /// form1 control.
@@ -22,31 +22,40 @@ namespace WebRole1 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label1 control.
+        /// CurrentPasswordTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox CurrentPasswordTextBox;
         
         /// <summary>
-        /// Label2 control.
+        /// NewPasswordTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox NewPasswordTextBox;
         
         /// <summary>
-        /// Label3 control.
+        /// RetypeNewPasswordTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox RetypeNewPasswordTextBox;
+        
+        /// <summary>
+        /// MsgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgLabel;
         
         /// <summary>
         /// ChangePasswordButton control.
@@ -55,24 +64,15 @@ namespace WebRole1 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ChangePasswordButton;
+        protected global::System.Web.UI.WebControls.Button ChangePasswordButton;
         
         /// <summary>
-        /// EditAccountInfoButton control.
+        /// CancelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton EditAccountInfoButton;
-        
-        /// <summary>
-        /// BackButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackButton;
+        protected global::System.Web.UI.WebControls.Button CancelButton;
     }
 }

@@ -95,6 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccountProfile.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="EditAccountProfile.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterSuccessful.aspx" />
@@ -109,6 +111,20 @@
     </Compile>
     <Compile Include="AccountProfile.aspx.designer.cs">
       <DependentUpon>AccountProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccountProfile.aspx.cs">
+      <DependentUpon>EditAccountProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAccountProfile.aspx.designer.cs">
+      <DependentUpon>EditAccountProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
