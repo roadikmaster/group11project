@@ -11,8 +11,13 @@
         <div style="height: 161px">
             //TODO: Edit user profile<br />
             <br />
+            Email Address:&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="NewEmailTextBox" runat="server" ></asp:TextBox>
             <br />
             <br />
+            <br />
+            <asp:Button ID="EditButton" runat="server" Height="26px" OnClick="EditButton_Click" Text="Edit" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="CancelButton" runat="server" OnClick="CancelButton_Click" Text="Cancel" />
         </div>
     </form>
