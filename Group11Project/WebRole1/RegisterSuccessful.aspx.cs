@@ -16,7 +16,7 @@ namespace WebRole1
 
         protected void toLogInButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("LogIn.aspx");
+            Response.Redirect("MainPage.aspx");
         }
     }
 }

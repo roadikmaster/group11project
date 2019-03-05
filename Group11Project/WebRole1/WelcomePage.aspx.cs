@@ -20,7 +20,7 @@ namespace WebRole1
 
         protected void LogOutButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("LogIn.aspx");
+            Response.Redirect("MainPage.aspx");
         }
 
         protected void AccountProfileButton_Click(object sender, EventArgs e)

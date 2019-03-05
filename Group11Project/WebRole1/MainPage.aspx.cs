@@ -8,19 +8,19 @@ using System.Web.UI.WebControls;
 
 namespace WebRole1
 {
-    public partial class LogIn : System.Web.UI.Page
+    public partial class MainPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Div1.Attributes.Add("style", "background-color:Black;");
 
         }
 
-        protected void LogInButton_Click(object sender, EventArgs e)
+        protected void LogInButton_Click(object sender, ImageClickEventArgs e)
         {
             string username = textUsername.Text;
             string password = textPassword.Text;
 
-            
             try
             {
                 SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
@@ -32,6 +32,8 @@ namespace WebRole1
                 using (SqlConnection connection = new SqlConnection(con.ConnectionString))
                 {
                     connection.Open();
+
+                    
 
                     string sql = "select * from account where username='" + username + "' and password='" + password + "'";
 
@@ -48,7 +50,7 @@ namespace WebRole1
                             }
                             else
                             {
-                                Response.Redirect("LogIn.aspx");
+                                Response.Redirect("MainPage.aspx");
                             }
                         }
                     }
@@ -60,13 +62,15 @@ namespace WebRole1
             }
             catch (SqlException err)
             {
-                
+
             }
 
-            
+
         }
 
-        protected void registerButton_Click(object sender, EventArgs e)
+
+
+        protected void RegisterButton_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("Register.aspx");
         }

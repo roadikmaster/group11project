@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebRole1.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="WebRole1.MainPage" %>
 
 <!DOCTYPE html>
 
@@ -36,6 +36,10 @@
         .auto-style6 {
             height: 78px;
         }
+        .auto-style7 {
+            height: 53px;
+            width: 1350px;
+        }
         .auto-style8 {
             text-decoration: none;
             position: absolute;
@@ -60,16 +64,15 @@
             left: 544px;
             top: 29px;
         }
-        .auto-style12 {
-            width: 1350px;
-        }
     </style>
 </head>
 <body>
     <body bgcolor="#B6B6B6">
-    <form id="form1" runat="server" class="auto-style12">
-
-        <div id="Div1" runat="server" class="auto-style6">
+        <form id="form1" runat="server" class="auto-style7">
+        
+        
+            
+            <div id="Div1" runat="server" class="auto-style6">
             
                 <p class="auto-style1">
             
@@ -82,7 +85,7 @@
 
         
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:ImageButton ID="LogInButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogInLogo.png" Width="79px" OnClick="LogInButton_Click" CssClass="auto-style5" />
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="42px" ImageUrl="~/ImageAssets/SignUpLogo.png" Width="79px" OnClick="RegisterButton_Click" CssClass="auto-style4" />
+                <asp:ImageButton ID="RegisterButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/SignUpLogo.png" Width="79px" OnClick="RegisterButton_Click" CssClass="auto-style4" />
                 <br />
                     <asp:LinkButton ID="HomeButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style8">HOME</asp:LinkButton>
                     <asp:LinkButton ID="FeaturesButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style9">FEATURES</asp:LinkButton>
@@ -97,27 +100,7 @@
                 </p>
                 </div>
 
-        <div>
-            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="Larger" Text="REGISTRATION FORM"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Text="Username:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="usernameText" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="Label3" runat="server" Font-Names="Arial Black" Text="Password:"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="passwordText" runat="server" TextMode="Password"></asp:TextBox>
-            <br />
-            <asp:Label ID="Label4" runat="server" Font-Names="Arial Black" Text="Email:"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="emailText" runat="server" Width="249px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Button ID="registerButton" runat="server" OnClick="RegisterButton_Click" Text="Register" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="CancelButton" runat="server" OnClick="CancelButton_Click" Text="Cancel" />
-        </div>
     </form>
 </body>
+
 </html>
