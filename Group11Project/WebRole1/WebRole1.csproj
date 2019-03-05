@@ -96,9 +96,11 @@
   <ItemGroup>
     <Content Include="AccountProfile.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="Features.aspx" />
     <Content Include="ImageAssets\CoffeeMachineLogo.png" />
     <Content Include="EditAccountProfile.aspx" />
     <Content Include="ImageAssets\LogInLogo.png" />
+    <Content Include="ImageAssets\LogOutLogo.png" />
     <Content Include="MainPage.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterSuccessful.aspx" />
@@ -128,6 +130,13 @@
     </Compile>
     <Compile Include="EditAccountProfile.aspx.designer.cs">
       <DependentUpon>EditAccountProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Features.aspx.cs">
+      <DependentUpon>Features.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Features.aspx.designer.cs">
+      <DependentUpon>Features.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>

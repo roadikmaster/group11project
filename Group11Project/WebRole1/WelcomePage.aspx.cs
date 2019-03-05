@@ -20,6 +20,7 @@ namespace WebRole1
 
         protected void LogOutButton_Click(object sender, EventArgs e)
         {
+            Session["username"] = null;
             Response.Redirect("MainPage.aspx");
         }
 

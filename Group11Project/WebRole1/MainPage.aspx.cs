@@ -13,6 +13,7 @@ namespace WebRole1
         protected void Page_Load(object sender, EventArgs e)
         {
             Div1.Attributes.Add("style", "background-color:Black;");
+            
 
         }
 
@@ -46,7 +47,7 @@ namespace WebRole1
                                 Session["username"] = username;
                                 Session["accountID"] = reader["accountID"].ToString();
                                 Session["email"] = reader["email"].ToString();
-                                Server.Transfer("WelcomePage.aspx");
+                                Server.Transfer("MainPage.aspx");
                             }
                             else
                             {
@@ -73,6 +74,17 @@ namespace WebRole1
         protected void RegisterButton_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("Register.aspx");
+        }
+
+        protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["username"] = null;
+            Server.Transfer("MainPage.aspx");
+        }
+
+        protected void UserAccountButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
         }
     }
 }

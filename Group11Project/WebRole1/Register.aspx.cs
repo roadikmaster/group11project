@@ -46,11 +46,11 @@ namespace WebRole1
                                 Session["username"] = username;
                                 Session["accountID"] = reader["accountID"].ToString();
                                 Session["email"] = reader["email"].ToString();
-                                Server.Transfer("WelcomePage.aspx");
+                                Server.Transfer("Register.aspx");
                             }
                             else
                             {
-                                Response.Redirect("MainPage.aspx");
+                                Response.Redirect("Register.aspx");
                             }
                         }
                     }
@@ -148,5 +148,18 @@ namespace WebRole1
         {
             Response.Redirect("MainPage.aspx");
         }
+
+        protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["username"] = null;
+            Server.Transfer("Register.aspx");
+        }
+
+        protected void UserAccountButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
+        }
+
+        
     }
 }

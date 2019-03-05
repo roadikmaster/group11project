@@ -76,6 +76,24 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.ImageButton RegisterButton;
         
         /// <summary>
+        /// UserAccountButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton UserAccountButton;
+        
+        /// <summary>
+        /// LogOutButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton LogOutButton;
+        
+        /// <summary>
         /// HomeButton control.
         /// </summary>
         /// <remarks>
