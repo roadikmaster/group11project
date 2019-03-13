@@ -94,8 +94,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUsPage.aspx" />
     <Content Include="AccountProfile.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="ContactPage.aspx" />
     <Content Include="Features.aspx" />
     <Content Include="ImageAssets\CoffeeMachineLogo.png" />
     <Content Include="EditAccountProfile.aspx" />
@@ -110,6 +112,13 @@
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUsPage.aspx.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUsPage.aspx.designer.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AccountProfile.aspx.cs">
       <DependentUpon>AccountProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +132,13 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactPage.aspx.cs">
+      <DependentUpon>ContactPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactPage.aspx.designer.cs">
+      <DependentUpon>ContactPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditAccountProfile.aspx.cs">
       <DependentUpon>EditAccountProfile.aspx</DependentUpon>

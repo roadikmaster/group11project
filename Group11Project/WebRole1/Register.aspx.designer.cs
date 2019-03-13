@@ -58,6 +58,15 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.TextBox textPassword;
         
         /// <summary>
+        /// ErrorMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorMsg;
+        
+        /// <summary>
         /// LogInButton control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace WebRole1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// RegErrorMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RegErrorMsg;
         
         /// <summary>
         /// Label2 control.

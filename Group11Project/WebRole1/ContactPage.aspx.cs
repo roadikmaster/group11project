@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -9,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace WebRole1
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class ContactPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,7 +39,7 @@ namespace WebRole1
                     Session["accountType"] = accountType;
                 }
 
-                Server.Transfer("MainPage.aspx");
+                Server.Transfer("ContactPage.aspx");
             }
             else
             {
@@ -58,54 +57,10 @@ namespace WebRole1
             Response.Redirect("Register.aspx");
         }
 
-        protected void RegisterButton_Click(object sender, EventArgs e)
-        {
-            string username = usernameText.Text;
-            string password = passwordText.Text;
-            string email = emailText.Text;
-
-            if (username != "" && password != "" && email != "")
-            {
-
-                try
-                {
-                    SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Account (username, password, email, accountType) VALUES (@username, @password, @email, @accountType)",con);
-                    cmd.Parameters.Add(new SqlParameter("username", username));
-                    cmd.Parameters.Add(new SqlParameter("password", password));
-                    cmd.Parameters.Add(new SqlParameter("email", email));
-                    cmd.Parameters.Add(new SqlParameter("accountType", "User"));
-
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-
-                    Response.Redirect("RegisterSuccessful.aspx");
-                }
-                catch (SqlException ee)
-                {
-                    RegErrorMsg.Text = "Account already existed";
-                }
-                
-            }
-            else
-            {
-                RegErrorMsg.Text = "Please fill all the details";
-            }
-            
-            
-        }
-
-        protected void CancelButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("MainPage.aspx");
-        }
-
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
         {
             Session["username"] = null;
-            Server.Transfer("MainPage.aspx");
+            Server.Transfer("ContactPage.aspx");
         }
 
         protected void UserAccountButton_Click(object sender, EventArgs e)
@@ -132,6 +87,5 @@ namespace WebRole1
         {
             Response.Redirect("ContactPage.aspx");
         }
-
     }
 }

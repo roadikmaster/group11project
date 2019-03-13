@@ -70,8 +70,16 @@
         }
         .auto-style14 {
             position: absolute;
+            text-align:right;
             left: 958px;
             top: 29px;
+        }
+        .auto-style15 {
+            position: absolute;
+            left: 1003px;
+            top: 70px;
+            width: 227px;
+            height: 19px;
         }
     </style>
 </head>
@@ -85,20 +93,19 @@
             
                 &nbsp;&nbsp;<asp:ImageButton style="position:absolute; top: 24px; left: 15px; right: 531px;" ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx"  Width="183px" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-         <%if (Session["username"] == null)
+                    <%if (Session["username"] == null)
                     {%>
                     
         <asp:TextBox ID="textUsername" runat="server"  placeholder="Username" Width="120px" CssClass="auto-style3"></asp:TextBox>
         
 
             &nbsp;<asp:TextBox ID="textPassword" runat="server" placeholder="Password" TextMode="Password" Width="120px" CssClass="auto-style2" ></asp:TextBox>
-
+                    <asp:Label ID="ErrorMsg" runat="server" CssClass="auto-style15" Font-Names="Arial" ForeColor="Red"></asp:Label>
         
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:ImageButton ID="LogInButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogInLogo.png" Width="79px" OnClick="LogInButton_Click" CssClass="auto-style5" />
                      <asp:ImageButton ID="ImageButton1" runat="server" Height="42px" ImageUrl="~/ImageAssets/SignUpLogo.png" Width="79px" OnClick="RegisterButton_Click" CssClass="auto-style4" />
 
-                    <%} %>               
-                   
+                    <%} %>                   
                     <%else
                         {
                             UserAccountButton.Text = Session["username"].ToString();%>
@@ -106,10 +113,10 @@
                      <asp:ImageButton ID="LogOutButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogOutLogo.png" Width="79px" CssClass="auto-style13" OnClick="LogOutButton_Click" />
                     <%} %>
                 <br />
-                    <asp:LinkButton ID="HomeButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style8">HOME</asp:LinkButton>
-                    <asp:LinkButton ID="FeaturesButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style9">FEATURES</asp:LinkButton>
-                    <asp:LinkButton ID="AboutUsButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style10">ABOUT US</asp:LinkButton>
-                    <asp:LinkButton ID="ContactButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style11">CONTACT</asp:LinkButton>
+                    <asp:LinkButton ID="HomeButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style8" OnClick="HomeButton_Click">HOME</asp:LinkButton>
+                    <asp:LinkButton ID="FeaturesButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style9" OnClick="FeaturesButton_Click">FEATURES</asp:LinkButton>
+                    <asp:LinkButton ID="AboutUsButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style10" OnClick="AboutUsButton_Click">ABOUT US</asp:LinkButton>
+                    <asp:LinkButton ID="ContactButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style11" OnClick="ContactButton_Click">CONTACT</asp:LinkButton>
                 <br />
                 <br />&nbsp;
 
@@ -121,6 +128,9 @@
 
         <div>
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="Larger" Text="REGISTRATION FORM"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="RegErrorMsg" runat="server" Font-Names="Arial" ForeColor="Red"></asp:Label>
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Text="Username:"></asp:Label>

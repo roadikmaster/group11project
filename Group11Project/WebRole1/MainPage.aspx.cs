@@ -22,51 +22,34 @@ namespace WebRole1
             string username = textUsername.Text;
             string password = textPassword.Text;
 
-            try
-            {
-                SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
-                con.DataSource = "ljagervidb.database.windows.net";
-                con.UserID = "rootroot";
-                con.Password = "Root1234";
-                con.InitialCatalog = "group11projectDB";
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "' and password='" + password + "'",con);
+            SqlDataReader reader = cmd.ExecuteReader();
 
-                using (SqlConnection connection = new SqlConnection(con.ConnectionString))
+            if (reader.HasRows)
+            {
+                while (reader.Read())
                 {
-                    connection.Open();
+                    Session["username"] = username;
 
-                    
-
-                    string sql = "select * from account where username='" + username + "' and password='" + password + "'";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                Session["username"] = username;
-                                Session["accountID"] = reader["accountID"].ToString();
-                                Session["email"] = reader["email"].ToString();
-                                Server.Transfer("MainPage.aspx");
-                            }
-                            else
-                            {
-                                Response.Redirect("MainPage.aspx");
-                            }
-                        }
-                    }
-
-                    connection.Close();
+                    int accountID = reader.GetInt32(0);
+                    string email = reader.GetString(3);
+                    string accountType = reader.GetString(4);
+                    Session["accountID"] = accountID.ToString();
+                    Session["email"] = email;
+                    Session["accountType"] = accountType;
                 }
-
-
+                
+                Server.Transfer("MainPage.aspx");
             }
-            catch (SqlException err)
+            else
             {
-
+                ErrorMsg.Text = "Invalid login details";
             }
 
-
+            con.Close();
+            
         }
 
 
@@ -85,6 +68,26 @@ namespace WebRole1
         protected void UserAccountButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("WelcomePage.aspx");
+        }
+
+        protected void HomeButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainPage.aspx");
+        }
+
+        protected void FeaturesButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Features.aspx");
+        }
+
+        protected void AboutUsButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AboutUsPage.aspx");
+        }
+
+        protected void ContactButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ContactPage.aspx");
         }
     }
 }

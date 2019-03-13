@@ -11,17 +11,39 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"].ToString() != null)
-            {
-                Label2.Text = Session["username"].ToString();
-            }
-            
+            Div1.Attributes.Add("style", "background-color:Black;");
         }
 
-        protected void LogOutButton_Click(object sender, EventArgs e)
+        
+        protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
         {
             Session["username"] = null;
+            Server.Transfer("MainPage.aspx");
+        }
+
+        protected void UserAccountButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
+        }
+
+        protected void HomeButton_Click(object sender, EventArgs e)
+        {
             Response.Redirect("MainPage.aspx");
+        }
+
+        protected void FeaturesButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Features.aspx");
+        }
+
+        protected void AboutUsButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AboutUsPage.aspx");
+        }
+
+        protected void ContactButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ContactPage.aspx");
         }
 
         protected void AccountProfileButton_Click(object sender, EventArgs e)
@@ -32,6 +54,11 @@ namespace WebRole1
         protected void FunctionButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("TempFunction.aspx");
+        }
+
+        protected void AdminModifyAccountButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
