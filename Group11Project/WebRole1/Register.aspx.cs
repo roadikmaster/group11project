@@ -30,13 +30,9 @@ namespace WebRole1
             {
                 while (reader.Read())
                 {
-                    Session["username"] = username;
 
-                    int accountID = reader.GetInt32(0);
-                    string email = reader.GetString(3);
+                    Session["username"] = username;
                     string accountType = reader.GetString(4);
-                    Session["accountID"] = accountID.ToString();
-                    Session["email"] = email;
                     Session["accountType"] = accountType;
                 }
 

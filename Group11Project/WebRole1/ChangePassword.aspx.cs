@@ -12,19 +12,36 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Div1.Attributes.Add("style", "background-color:Black;");
         }
 
         protected void ChangePasswordButton_Click(object sender, EventArgs e)
         {
             string username = Session["username"].ToString();
-            string inputAccountPassword = CurrentPasswordTextBox.Text;
-            string newPassword = NewPasswordTextBox.Text;
-            string retypeNewPasword = RetypeNewPasswordTextBox.Text;
+            string inputAccountPassword = CurrentPasswordText.Text;
+            string newPassword = NewPasswordText.Text;
+            string retypeNewPasword = VerifyPasswordText.Text;
             string userRealPassword = null;
             bool correctPassword = false;
             bool alignedNewPassword = false;
 
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "'", con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    userRealPassword = reader.GetString(2);
+                }
+
+            }
+
+            con.Close();
+
+            /*
             try
             {
                 SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
@@ -61,6 +78,8 @@ namespace WebRole1
             {
                 //error never happen
             }
+            */
+
 
             //check if user entered the password correctly
             if (inputAccountPassword.Equals(userRealPassword))
@@ -78,6 +97,27 @@ namespace WebRole1
             //update the new password in the database.
             if (correctPassword == true && alignedNewPassword == true)
             {
+                try
+                {
+                    con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                    con.Open();
+
+                    cmd = new SqlCommand(@"UPDATE Account SET password=@newpassword WHERE username=@username", con);
+                    cmd.Parameters.Add(new SqlParameter("username", username));
+                    cmd.Parameters.Add(new SqlParameter("newpassword", newPassword));
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    Response.Redirect("WelcomePage.aspx");
+
+                }
+                catch (SqlException ee)
+                {
+                    //error will never happen
+                }
+
+                /*
                 try
                 {
                     SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
@@ -116,6 +156,7 @@ namespace WebRole1
                 {
                     //error will never happen
                 }
+                */
             }
 
             //if user entered the current password correctly but did not align the new passwords
@@ -124,13 +165,11 @@ namespace WebRole1
                 //shows different message if a new password is empty or not.
                 if(newPassword.Equals("") || retypeNewPasword.Equals(""))
                 {
-                    MsgLabel.Text = "New password must not be empty";
-                    Server.Transfer("ChangePassword.aspx");
+                    ErrorMsg.Text = "New password must not be empty";
                 }
                 else
                 {
-                    MsgLabel.Text = "New password does not align";
-                    Server.Transfer("ChangePassword.aspx");
+                    ErrorMsg.Text = "New password does not align";
                 }
                 
             }
@@ -138,10 +177,8 @@ namespace WebRole1
             //if user entered password incorrectly
             else
             {
-
-                MsgLabel.Text = "Incorrect Password";
-                Server.Transfer("ChangePassword.aspx");
-                
+                ErrorMsg.Text = "Incorrect Password";
+               
             }
 
 
@@ -149,6 +186,42 @@ namespace WebRole1
         }
 
         protected void CancelButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AccountProfile.aspx");
+        }
+
+        protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["username"] = null;
+            Server.Transfer("MainPage.aspx");
+        }
+
+        protected void UserAccountButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
+        }
+
+        protected void HomeButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainPage.aspx");
+        }
+
+        protected void FeaturesButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Features.aspx");
+        }
+
+        protected void AboutUsButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AboutUsPage.aspx");
+        }
+
+        protected void ContactButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ContactPage.aspx");
+        }
+
+        protected void AccountProfileButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("AccountProfile.aspx");
         }

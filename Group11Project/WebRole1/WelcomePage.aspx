@@ -107,10 +107,15 @@
                         <br />
                         <br />
                         <asp:LinkButton ID="AdminModifyAccountButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AdminModifyAccountButton_Click">Modify Account of Another User</asp:LinkButton>
+                        <br />
+                        <br />
                     <%} %>
             
             
-            
+            <asp:Label ID="Label3" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="FUNCTION MANAGEMENT"></asp:Label>
+            <br />
+            <br />
+            <asp:LinkButton ID="FunctionButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="FunctionButton_Click">Upcoming function</asp:LinkButton>
 
     </form>
         
