@@ -58,7 +58,7 @@ namespace WebRole1
 
         protected void AdminModifyAccountButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AdminModifyUserAccount.aspx");
         }
 
         

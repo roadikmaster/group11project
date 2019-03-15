@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="AboutUsPage.aspx" />
     <Content Include="AccountProfile.aspx" />
+    <Content Include="AdminModifyUserAccount.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ContactPage.aspx" />
     <Content Include="Features.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="AccountProfile.aspx.designer.cs">
       <DependentUpon>AccountProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModifyUserAccount.aspx.cs">
+      <DependentUpon>AdminModifyUserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminModifyUserAccount.aspx.designer.cs">
+      <DependentUpon>AdminModifyUserAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
