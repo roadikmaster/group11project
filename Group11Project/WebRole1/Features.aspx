@@ -85,7 +85,7 @@
         </style>
 </head>
 <body>
-    <body bgcolor="#B6B6B6">
+    <body bgcolor="#B6B6B6" font="Arial">
         <form id="form1" runat="server" class="auto-style7">
         
         

@@ -71,6 +71,7 @@
     <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -100,8 +101,8 @@
     <Content Include="ChangePassword.aspx" />
     <Content Include="ContactPage.aspx" />
     <Content Include="Features.aspx" />
-    <Content Include="ImageAssets\CoffeeMachineLogo.png" />
     <Content Include="EditAccountProfile.aspx" />
+    <Content Include="ImageAssets\CoffeeMachineLogo.png" />
     <Content Include="ImageAssets\LogInLogo.png" />
     <Content Include="ImageAssets\LogOutLogo.png" />
     <Content Include="MainPage.aspx" />
@@ -109,6 +110,7 @@
     <Content Include="RegisterSuccessful.aspx" />
     <Content Include="ImageAssets\SignUpLogo.png" />
     <Content Include="TempFunction.aspx" />
+    <Content Include="ViewHistoryPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
@@ -190,6 +192,13 @@
     </Compile>
     <Compile Include="TempFunction.aspx.designer.cs">
       <DependentUpon>TempFunction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewHistoryPage.aspx.cs">
+      <DependentUpon>ViewHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewHistoryPage.aspx.designer.cs">
+      <DependentUpon>ViewHistoryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebRole.cs" />
     <Compile Include="WelcomePage.aspx.cs">

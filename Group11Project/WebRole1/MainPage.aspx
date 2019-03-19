@@ -133,7 +133,16 @@
                 </p>
                 </div>
 
-    </form>
+            <br />
+
+            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="HELLO!"></asp:Label>
+
+            <br />
+            <br />
+            Welcome to CoffeeIOT, 
+
+            an interactive Coffee Machine app that can automate brewing of<br />
+            your coffee machine minutes before your morning starts.</form>
 </body>
 
 </html>

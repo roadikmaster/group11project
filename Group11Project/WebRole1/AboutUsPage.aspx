@@ -135,7 +135,10 @@
             <br />
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ABOUT US"></asp:Label>
 
-    </form>
+            <br />
+            <br />
+            We, the Group 11 Cloud Programming Course, are dedicated to make our project simple to use<br />
+            with simple tutorials and user friendly GUI.</form>
         
         
 </body>

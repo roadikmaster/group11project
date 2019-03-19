@@ -70,7 +70,15 @@
                 &nbsp;&nbsp;<asp:ImageButton style="position:absolute; top: 24px; left: 15px; right: 531px;" ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx"  Width="183px" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                                   
-                    <% UserAccountButton.Text = Session["username"].ToString();%>
+                    <%
+                        try
+                        {
+                            UserAccountButton.Text = Session["username"].ToString();
+                        }
+                        catch (Exception ee)
+                        {
+                            Response.Redirect("MainPage.aspx");
+                        }%>
                     <asp:LinkButton ID="UserAccountButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style14" OnClick="UserAccountButton_Click" ></asp:LinkButton>
                     <asp:ImageButton ID="LogOutButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogOutLogo.png" Width="79px" CssClass="auto-style13" OnClick="LogOutButton_Click" />
                     
@@ -108,14 +116,19 @@
                         <br />
                         <asp:LinkButton ID="AdminModifyAccountButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AdminModifyAccountButton_Click">Modify Account of Another User</asp:LinkButton>
                         <br />
+            <asp:LinkButton ID="AdminViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False">View Recent Usage History of Another User</asp:LinkButton>
                         <br />
-                    <%} %>
+                        <br />
+            <%} %>
             
             
             <asp:Label ID="Label3" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="FUNCTION MANAGEMENT"></asp:Label>
             <br />
             <br />
             <asp:LinkButton ID="FunctionButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="FunctionButton_Click">Upcoming function</asp:LinkButton>
+
+            <br />
+            <asp:LinkButton ID="ViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewHistoryButton_Click">View Recent Usage History</asp:LinkButton>
 
     </form>
         
