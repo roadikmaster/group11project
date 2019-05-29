@@ -117,7 +117,7 @@
             <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="SearchButton" runat="server" Text="View/Search" OnClick="SearchButton_Click" />
+            <asp:Button ID="SearchButton" runat="server" Text="View/Search" OnClientClick="return checkcontent()" OnClick="SearchButton_Click" />
 
             <br />
             <br />
@@ -146,7 +146,7 @@
             <br />
             <br />
             <br />
-            <asp:LinkButton ID="EditUserAccountButton" runat="server" Font-Bold="True" Font-Names="Arial" OnClick="EditUserAccountButton_Click">EDIT USER&#39;S ACCOUNT</asp:LinkButton>
+            <asp:LinkButton ID="EditUserAccountButton" runat="server" Font-Bold="True" Font-Names="Arial" OnClientClick="return validate()" OnClick="EditUserAccountButton_Click">EDIT USER&#39;S ACCOUNT</asp:LinkButton>
             <br />
             <br />
             <asp:LinkButton ID="DeleteUserButton" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red" OnClick="DeleteUserButton_Click">DELETE USER&#39;S ACCOUNT</asp:LinkButton>
@@ -155,6 +155,41 @@
             <asp:LinkButton ID="CancelButton" runat="server" Font-Bold="True" Font-Names="Arial" OnClick="CancelButton_Click">CANCEL / BACK</asp:LinkButton>
             <br />
             <br />
+
+            <script type="text/javascript">
+                function validate() {
+                    var text = document.getElementById("SearchText").value;
+                    var email = document.getElementById("UserEmailText").value;
+                    var emailpattern = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/;
+
+                    if (text == "") {
+                        alert("Please use the search button first");
+                        return false;
+                    }
+                    if (email == "") {
+                        alert("Email cannot be empty.\nClick Cancel if not changing Account Information.");
+                        return false;
+                    }
+                    if (email != "") {
+                        if (!email.match(emailpattern)) {
+                            alert("Invalid email address");
+                            return false;
+                        }
+                        return true;
+                    }
+                }
+
+                function checkcontent() {
+                    var text = document.getElementById("SearchText").value;
+
+                    if (text == "") {
+                        alert("Search field cannot be empty");
+                        return false;
+                    }
+
+                    return true;
+                }
+            </script>
             
     </form>
         

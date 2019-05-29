@@ -157,6 +157,7 @@ namespace WebRole1
                 searchType = "Username";
             }
 
+            //get account information about the user based on account ID.
             if (searchType.Equals("ID"))
             {
                 try
@@ -205,42 +206,33 @@ namespace WebRole1
 
             }
 
+            // get account information about the user based on username.
             if (searchType.Equals("Username"))
             {
-                if (!searchText.Equals(""))
-                {
-                    SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + searchText + "'", con);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + searchText + "'", con);
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.HasRows)
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            UserAccountIDText.Text = reader.GetInt32(0).ToString();
-                            UserUsernameText.Text = reader.GetString(1);
-                            UserEmailText.Attributes.Add("placeholder", reader.GetString(3).ToString());
-                        }
-                        MessageLabel.Text = "";
+                        UserAccountIDText.Text = reader.GetInt32(0).ToString();
+                        UserUsernameText.Text = reader.GetString(1);
+                        UserEmailText.Attributes.Add("placeholder", reader.GetString(3).ToString());
                     }
-                    else
-                    {
-                        MessageLabel.Text = "User not found";
-                        UserAccountIDText.Text = "";
-                        UserUsernameText.Text = "";
-                        UserEmailText.Text = "";
-                        UserEmailText.Attributes.Add("placeholder", "");
-                    }
+                    MessageLabel.Text = "";
                 }
                 else
                 {
-                    MessageLabel.Text = "Search field cannot be empty";
+                    MessageLabel.Text = "User not found";
                     UserAccountIDText.Text = "";
                     UserUsernameText.Text = "";
                     UserEmailText.Text = "";
                     UserEmailText.Attributes.Add("placeholder", "");
                 }
+                
             }
 
             
