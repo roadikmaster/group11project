@@ -123,10 +123,28 @@
             <br />
             <br />
             <br />
-            <asp:LinkButton ID="EditButton" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red" OnClick="EditButton_Click">Edit</asp:LinkButton>
+            <asp:LinkButton ID="EditButton" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red" OnClientClick="return validate()" OnClick="EditButton_Click">Edit</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="CancelButton" runat="server" Font-Bold="True" Font-Names="Arial" OnClick="CancelButton_Click">Cancel</asp:LinkButton>
             
+            <script type="text/javascript">
+                function validate() {
+                    var email = document.getElementById("EmailText").value;
+                    var emailpattern = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/;
+
+                    if (email == "") {
+                        alert("Email cannot be empty.\n Click Cancel if not changing email");
+                        return false;
+                    }
+                    if (email != "") {
+                        if (!email.match(emailpattern)) {
+                            alert("Invalid email format");
+                            return false;
+                        }
+                        return true;
+                    }
+                }
+            </script>
             
     </form>
         
