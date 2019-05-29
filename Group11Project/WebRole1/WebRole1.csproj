@@ -99,6 +99,7 @@
     <Content Include="AccountProfile.aspx" />
     <Content Include="AdminModifyUserAccount.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="ContactInformation.txt" />
     <Content Include="ContactPage.aspx" />
     <Content Include="Features.aspx" />
     <Content Include="EditAccountProfile.aspx" />
@@ -109,6 +110,7 @@
     <Content Include="Register.aspx" />
     <Content Include="RegisterSuccessful.aspx" />
     <Content Include="ImageAssets\SignUpLogo.png" />
+    <Content Include="SupportInformation.txt" />
     <Content Include="TempFunction.aspx" />
     <Content Include="ViewHistoryPage.aspx" />
     <Content Include="Web.config" />

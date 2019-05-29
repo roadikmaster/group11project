@@ -108,8 +108,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:ImageButton ID="LogInButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogInLogo.png" Width="79px" OnClick="LogInButton_Click" CssClass="auto-style5" />
                      <asp:ImageButton ID="RegisterButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/SignUpLogo.png" Width="79px" OnClick="RegisterButton_Click" CssClass="auto-style4" />
 
-                    <%} %>                   
-                    <%else
+                    <%} %>                    <%else
                         {
                             UserAccountButton.Text = Session["username"].ToString();%>
                     <asp:LinkButton ID="UserAccountButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style14" OnClick="UserAccountButton_Click" ></asp:LinkButton>
@@ -137,14 +136,50 @@
 
             <br />
             <br />
-            support@group11project.se<br />
+            <asp:LinkButton ID="LinkButton1" OnClientClick="showcontent1()" runat="server">View Contact Information</asp:LinkButton>
+            <br />
+
+            <p id="ContentText1"></p><br />
+
+            <script type="text/javascript">
+                function showcontent1() {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("ContentText1").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "SupportInformation.txt", true);
+                    xmlhttp.send();
+                }
+            </script>
+
             <br />
             <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="CREDITS"></asp:Label>
             <br />
             <br />
-            Jenny Sheng<br />
-            Viktor Ingvarsson<br />
-            Lennart Jägervi<br />
+          
+
+            <asp:LinkButton ID="ViewContact" runat="server" OnClientClick="showcontent()">View Credits</asp:LinkButton>
+            <p id="ContentText"></p>
+
+            <script type="text/javascript">
+                function showcontent() {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("ContentText").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "ContactInformation.txt", true);
+                    xmlhttp.send();
+                }
+            </script>
+
+
+
+
+
             <br />
 
     </form>
