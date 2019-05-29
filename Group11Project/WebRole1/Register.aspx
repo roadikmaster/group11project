@@ -153,10 +153,12 @@
             <script type="text/javascript">
                 function validate()
                 {
+                    //validate user inputs. If anything is not valid, this function returns false and will not execute onClick function.
+
                     var username = document.getElementById("usernameText").value;
                     var password = document.getElementById("passwordText").value;
                     var email = document.getElementById("emailText").value;
-                    var emailpattern = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/;
+                    var emailpattern = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/; //standard pattern for email
 
                     if (username == "") {
                         alert("Username cannot be empty");

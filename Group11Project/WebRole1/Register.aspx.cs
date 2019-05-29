@@ -16,6 +16,7 @@ namespace WebRole1
             Div1.Attributes.Add("style", "background-color:Black;");
         }
 
+        //compare login details with the ones from the database, if all user credentials are valid, logs the user in.
         protected void LogInButton_Click(object sender, ImageClickEventArgs e)
         {
             string username = textUsername.Text;
@@ -48,12 +49,13 @@ namespace WebRole1
         }
 
 
-
+        //proceed to registration form
         protected void RegisterButton_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("Register.aspx");
         }
 
+        //adds the new account information into the database after the inputs are checked on the client side.
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             string username = usernameText.Text;
@@ -83,26 +85,17 @@ namespace WebRole1
             }
 
 
-            /*
-            if (username != "" && password != "" && email != "")
-            {
-
-                
-                
-            }
-            else
-            {
-                RegErrorMsg.Text = "Please fill all the details";
-            }
-            */
+            
+            
             
         }
-
+        //cancel registration and redirect user back to main page.
         protected void CancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("MainPage.aspx");
         }
 
+        //logs, the user out, removes all the contents in the session and redirect to main page.
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
         {
             Session["username"] = null;

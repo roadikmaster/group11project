@@ -23,7 +23,7 @@ namespace WebRole1
             string retypeNewPasword = VerifyPasswordText.Text;
             string userRealPassword = null;
             bool correctPassword = false;
-            bool alignedNewPassword = false;
+            
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
@@ -41,45 +41,7 @@ namespace WebRole1
 
             con.Close();
 
-            /*
-            try
-            {
-                SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
-                con.DataSource = "ljagervidb.database.windows.net";
-                con.UserID = "rootroot";
-                con.Password = "Root1234";
-                con.InitialCatalog = "group11projectDB";
-
-                //get the current password about this user
-                using (SqlConnection connection = new SqlConnection(con.ConnectionString))
-                {
-                    connection.Open();
-
-                    string sql = "select * from account where username='" + username + "'";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                userRealPassword = reader["password"].ToString();   
-                            }
-                            
-                        }
-                    }
-
-                    connection.Close();
-                }
-
-
-            }
-            catch (SqlException err)
-            {
-                //error never happen
-            }
-            */
-
+           
 
             //check if user entered the password correctly
             if (inputAccountPassword.Equals(userRealPassword))
@@ -87,15 +49,12 @@ namespace WebRole1
                 correctPassword = true;
             }
 
-            //check if the two new password align with each other and are not empty
-            if (newPassword.Equals(retypeNewPasword) && !newPassword.Equals("") && !retypeNewPasword.Equals(""))
-            {
-                alignedNewPassword = true;
-            }
+            
+            
 
-            //if user entered the correct password correctly and the two new passwords aligned
+            //if user entered the old password correctly and the two new passwords aligned from the client side
             //update the new password in the database.
-            if (correctPassword == true && alignedNewPassword == true)
+            if (correctPassword == true)
             {
                 try
                 {
@@ -116,63 +75,10 @@ namespace WebRole1
                 {
                     //error will never happen
                 }
-
-                /*
-                try
-                {
-                    SqlConnectionStringBuilder con = new SqlConnectionStringBuilder();
-                    con.DataSource = "ljagervidb.database.windows.net";
-                    con.UserID = "rootroot";
-                    con.Password = "Root1234";
-                    con.InitialCatalog = "group11projectDB";
-
-                    using (SqlConnection connection = new SqlConnection(con.ConnectionString))
-                    {
-                        using (SqlCommand command = new SqlCommand())
-                        {
-                            command.Connection = connection;
-                            command.CommandType = System.Data.CommandType.Text;
-                            command.CommandText = "UPDATE Account SET password=@newpassword WHERE username=@username";
-                            command.Parameters.AddWithValue("@username", username);
-                            command.Parameters.AddWithValue("@newpassword", newPassword);
-
-                            try
-                            {
-                                connection.Open();
-                                int a = command.ExecuteNonQuery();
-                                connection.Close();
-
-                                Response.Redirect("AccountProfile.aspx");
-                            }
-                            catch (SqlException ee)
-                            {
-                                //error will never happen
-                            }
-
-                        }
-                    }
-                }
-                catch (SqlException ee)
-                {
-                    //error will never happen
-                }
-                */
-            }
-
-            //if user entered the current password correctly but did not align the new passwords
-            else if (correctPassword == true && alignedNewPassword == false)
-            {
-                //shows different message if a new password is empty or not.
-                if(newPassword.Equals("") || retypeNewPasword.Equals(""))
-                {
-                    ErrorMsg.Text = "New password must not be empty";
-                }
-                else
-                {
-                    ErrorMsg.Text = "New password does not align";
-                }
                 
             }
+
+            
 
             //if user entered password incorrectly
             else

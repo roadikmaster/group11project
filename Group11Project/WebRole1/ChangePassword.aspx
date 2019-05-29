@@ -123,10 +123,38 @@
             
             <br />
             <br />
-            <asp:LinkButton ID="ChangePasswordButton" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red" OnClick="ChangePasswordButton_Click">Change Password</asp:LinkButton>
+            <asp:LinkButton ID="ChangePasswordButton" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red" OnClientClick="return validate()" OnClick="ChangePasswordButton_Click">Change Password</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="CancelButton" runat="server" Font-Bold="True" Font-Names="Arial" OnClick="CancelButton_Click">Cancel</asp:LinkButton>
             <br />
+
+            <script type="text/javascript">
+                function validate()
+                {
+                    var currentpassword = document.getElementById("CurrentPasswordText").value;
+                    var newpassword = document.getElementById("NewPasswordText").value;
+                    var verifypassword = document.getElementById("VerifyPasswordText").value;
+
+                    if (currentpassword == "") {
+                        alert("Current Password cannot be empty");
+                        return false;
+                    }
+                    if (newpassword == "") {
+                        alert("New Password cannot be empty");
+                        return false;
+                    }
+                    if (verifypassword == "") {
+                        alert("Verify New Password cannot be empty");
+                        return false;
+                    }
+                    if (newpassword != verifypassword) {
+                        alert("New Password and Verify Password did not match");
+                        return false;
+                    }
+
+                    return true;
+                }
+            </script>
             
     </form>
         
