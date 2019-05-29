@@ -60,36 +60,41 @@ namespace WebRole1
             string password = passwordText.Text;
             string email = emailText.Text;
 
+
+            try
+            {
+                SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO Account (username, password, email, accountType) VALUES (@username, @password, @email, @accountType)", con);
+                cmd.Parameters.Add(new SqlParameter("username", username));
+                cmd.Parameters.Add(new SqlParameter("password", password));
+                cmd.Parameters.Add(new SqlParameter("email", email));
+                cmd.Parameters.Add(new SqlParameter("accountType", "User"));
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                Response.Redirect("RegisterSuccessful.aspx");
+            }
+            catch (SqlException ee)
+            {
+                RegErrorMsg.Text = "Account already existed";
+            }
+
+
+            /*
             if (username != "" && password != "" && email != "")
             {
 
-                try
-                {
-                    SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Account (username, password, email, accountType) VALUES (@username, @password, @email, @accountType)",con);
-                    cmd.Parameters.Add(new SqlParameter("username", username));
-                    cmd.Parameters.Add(new SqlParameter("password", password));
-                    cmd.Parameters.Add(new SqlParameter("email", email));
-                    cmd.Parameters.Add(new SqlParameter("accountType", "User"));
-
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-
-                    Response.Redirect("RegisterSuccessful.aspx");
-                }
-                catch (SqlException ee)
-                {
-                    RegErrorMsg.Text = "Account already existed";
-                }
+                
                 
             }
             else
             {
                 RegErrorMsg.Text = "Please fill all the details";
             }
-            
+            */
             
         }
 

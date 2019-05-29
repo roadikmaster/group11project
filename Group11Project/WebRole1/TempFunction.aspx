@@ -11,6 +11,24 @@
         <div>
             //TODO: Implement the main project features here<br />
             <br />
+            <br />
+            t:&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="tLabel" runat="server"></asp:Label>
+            <br />
+            x:&nbsp;&nbsp;&nbsp; <asp:Label ID="xLabel" runat="server"></asp:Label>
+            <br />
+            y:&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="yLabel" runat="server"></asp:Label>
+            <br />
+            z:&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="zLabel" runat="server"></asp:Label>
+            <br />
+            <br />
+            <asp:Button ID="RecordButton" runat="server" OnClick="RecordButton_Click" Text="Record" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="StopButton" runat="server" OnClick="StopButton_Click" Text="Stop" />
+            <br />
+            <br />
             <asp:Button ID="BackButton" runat="server" OnClick="BackButton_Click" Text="Back" />
         </div>
     </form>

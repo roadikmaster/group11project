@@ -115,9 +115,13 @@
 
             
 
-            <asp:Chart ID="Chart1" runat="server">
+            <asp:Chart ID="ResultChart" runat="server" DataSourceID="SqlDataSource1">
                 <series>
-                    <asp:Series ChartType="Line" Name="Series1">
+                    <asp:Series ChartType="Line" Name="Series1" XValueMember="timestamp" YValueMembers="x">
+                    </asp:Series>
+                    <asp:Series ChartArea="ChartArea1" ChartType="Line" Name="Series2" XValueMember="timestamp" YValueMembers="y">
+                    </asp:Series>
+                    <asp:Series ChartArea="ChartArea1" ChartType="Line" Name="Series3" XValueMember="timestamp" YValueMembers="z">
                     </asp:Series>
                 </series>
                 <chartareas>
@@ -125,6 +129,14 @@
                     </asp:ChartArea>
                 </chartareas>
             </asp:Chart>
+
+            
+            
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:group11projectDBConnectionString %>" SelectCommand="SELECT [timestamp], [x],[y],[z] FROM [Data],[Account] WHERE Data.accountID=Account.accountID AND ([username] = @username)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="username" SessionField="Username" />
+                </SelectParameters>
+            </asp:SqlDataSource>
 
             
 

@@ -146,9 +146,40 @@
             <asp:TextBox ID="emailText" runat="server" Width="249px"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="registerButton" runat="server" OnClick="RegisterButton_Click" Text="Register" />
+            <asp:Button ID="registerButton" runat="server" OnClientClick="return validate()" Onclick="RegisterButton_Click"  Text="Register" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="CancelButton" runat="server" OnClick="CancelButton_Click" Text="Cancel" />
+
+            <script type="text/javascript">
+                function validate()
+                {
+                    var username = document.getElementById("usernameText").value;
+                    var password = document.getElementById("passwordText").value;
+                    var email = document.getElementById("emailText").value;
+                    var emailpattern = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/;
+
+                    if (username == "") {
+                        alert("Username cannot be empty");
+                        return false;
+                    }
+                    if (password == "") {
+                        alert("Password cannot be empty");
+                        return false;
+                    }
+                    if (email == "") {
+                        alert("Email cannot be empty");
+                        return false;
+                    }
+                    if (email != "") {
+                        if (!email.match(emailpattern)) {
+                            alert("Invalid email format");
+                            return false;
+                        }
+                        return true;
+                    }
+                    
+                }
+            </script>
         </div>
     </form>
 </body>
