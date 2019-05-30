@@ -83,6 +83,10 @@
             height: 19px;
         }
         </style>
+
+    
+    
+
 </head>
 <body>
     <body bgcolor="#B6B6B6">
@@ -136,7 +140,7 @@
 
             <br />
             <br />
-            <asp:LinkButton ID="LinkButton1" OnClientClick="showcontent1()" runat="server">View Contact Information</asp:LinkButton>
+            <asp:LinkButton  ID="LinkButton1" OnClientClick="return showcontent1(event)" runat="server">View Contact Information</asp:LinkButton>
             <br />
 
             <p id="ContentText1"></p><br />
@@ -151,6 +155,9 @@
                     };
                     xmlhttp.open("GET", "SupportInformation.txt", true);
                     xmlhttp.send();
+
+                    event.preventDefault();
+                    return false;
                 }
             </script>
 
@@ -160,10 +167,11 @@
             <br />
           
 
-            <asp:LinkButton ID="ViewContact" runat="server" OnClientClick="showcontent()">View Credits</asp:LinkButton>
+            <asp:LinkButton ID="ViewContact" runat="server" OnClientClick="return showcontent(event)">View Credits</asp:LinkButton>
             <p id="ContentText"></p>
 
             <script type="text/javascript">
+                // fetch from a text file and display the contents
                 function showcontent() {
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function () {
@@ -173,6 +181,9 @@
                     };
                     xmlhttp.open("GET", "ContactInformation.txt", true);
                     xmlhttp.send();
+
+                    event.preventDefault();
+                    return false;  //prevents from refreshing the page
                 }
             </script>
 
