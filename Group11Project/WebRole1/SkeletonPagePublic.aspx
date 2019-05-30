@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="WebRole1.MainPage" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SkeletonPagePublic.aspx.cs" Inherits="WebRole1.SkeletonPagePublic" %>
 
 <!DOCTYPE html>
 
@@ -109,7 +108,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:ImageButton ID="LogInButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogInLogo.png" Width="79px" OnClick="LogInButton_Click" CssClass="auto-style5" />
                      <asp:ImageButton ID="RegisterButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/SignUpLogo.png" Width="79px" OnClick="RegisterButton_Click" CssClass="auto-style4" />
 
-                    <%} %>                    <%else
+                    <%} %>                   
+                    <%else
                         {
                             UserAccountButton.Text = Session["username"].ToString();%>
                     <asp:LinkButton ID="UserAccountButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style14" OnClick="UserAccountButton_Click" ></asp:LinkButton>
@@ -134,20 +134,14 @@
 
             <br />
 
-            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="HELLO!"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="THIS IS SKELETON PAGE PUBLIC!"></asp:Label>
 
             <br />
             <br />
-            Welcome to CoffeeIOT, 
-
-            an interactive Coffee Machine app that can automate brewing of<br />
-            your coffee machine minutes before your morning starts.<br />
+            <p>Only use this page template if the user isn't required to log in.</p>
             <br />
-            
-            <br />
-
-
         </form>
 </body>
 
 </html>
+

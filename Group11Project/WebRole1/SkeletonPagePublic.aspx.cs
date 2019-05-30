@@ -8,12 +8,12 @@ using System.Web.UI.WebControls;
 
 namespace WebRole1
 {
-    public partial class MainPage : System.Web.UI.Page
+    public partial class SkeletonPagePublic : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             Div1.Attributes.Add("style", "background-color:Black;");
-            
+
 
         }
 
@@ -24,7 +24,7 @@ namespace WebRole1
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "' and password='" + password + "'",con);
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "' and password='" + password + "'", con);
             SqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows)
@@ -35,7 +35,7 @@ namespace WebRole1
                     string accountType = reader.GetString(4);
                     Session["accountType"] = accountType;
                 }
-                
+
                 Server.Transfer("MainPage.aspx");
             }
             else
@@ -44,7 +44,7 @@ namespace WebRole1
             }
 
             con.Close();
-            
+
         }
 
 
@@ -85,6 +85,7 @@ namespace WebRole1
             Response.Redirect("ContactPage.aspx");
         }
 
-        
+
+
     }
 }

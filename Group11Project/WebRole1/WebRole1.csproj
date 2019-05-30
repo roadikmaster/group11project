@@ -110,6 +110,8 @@
     <Content Include="Register.aspx" />
     <Content Include="RegisterSuccessful.aspx" />
     <Content Include="ImageAssets\SignUpLogo.png" />
+    <Content Include="SkeletonPagePrivate.aspx" />
+    <Content Include="SkeletonPagePublic.aspx" />
     <Content Include="SupportInformation.txt" />
     <Content Include="TempFunction.aspx" />
     <Content Include="ViewHistoryPage.aspx" />
@@ -187,6 +189,20 @@
     </Compile>
     <Compile Include="RegisterSuccessful.aspx.designer.cs">
       <DependentUpon>RegisterSuccessful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkeletonPagePrivate.aspx.cs">
+      <DependentUpon>SkeletonPagePrivate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkeletonPagePrivate.aspx.designer.cs">
+      <DependentUpon>SkeletonPagePrivate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkeletonPagePublic.aspx.cs">
+      <DependentUpon>SkeletonPagePublic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkeletonPagePublic.aspx.designer.cs">
+      <DependentUpon>SkeletonPagePublic.aspx</DependentUpon>
     </Compile>
     <Compile Include="TempFunction.aspx.cs">
       <DependentUpon>TempFunction.aspx</DependentUpon>

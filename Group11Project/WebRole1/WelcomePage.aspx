@@ -129,6 +129,8 @@
 
             <br />
             <asp:LinkButton ID="ViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewHistoryButton_Click">View Recent Usage History</asp:LinkButton>
+            <br />
+            
 
     </form>
         
