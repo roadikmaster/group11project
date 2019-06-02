@@ -157,16 +157,33 @@
 
                     var username = document.getElementById("usernameText").value;
                     var password = document.getElementById("passwordText").value;
+                    var usernamelength = username.length;
+                    var paswordlength = password.length;
                     var email = document.getElementById("emailText").value;
                     var emailpattern = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/; //standard pattern for email
+                    var alphanumericpattern = /^[a-zA-Z0-9]*$/; //standard pattern for alphanumeric characters without spaces
 
                     if (username == "") {
                         alert("Username cannot be empty");
                         return false;
                     }
+                    if (usernamelength < 4) {
+                        alert("Username must be at least 4 characters long");
+                        return false;
+                    }
                     if (password == "") {
                         alert("Password cannot be empty");
                         return false;
+                    }
+                    if (paswordlength < 4) {
+                        alert("Password must be at least 4 characters long");
+                        return false;
+                    }
+                    if (username != "") {
+                        if (!username.match(alphanumericpattern)) {
+                            alert("username must be alphanumeric (A-Z, a-z, 0-9)");
+                            return false;
+                        }
                     }
                     if (email == "") {
                         alert("Email cannot be empty");

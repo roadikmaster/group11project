@@ -10,7 +10,7 @@
 namespace WebRole1 {
     
     
-    public partial class MainPage {
+    public partial class Shop {
         
         /// <summary>
         /// form1 control.
@@ -139,15 +139,6 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.LinkButton ContactButton;
         
         /// <summary>
-        /// ShopButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ShopButton;
-        
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -155,5 +146,32 @@ namespace WebRole1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// SearchText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SearchText;
+        
+        /// <summary>
+        /// SearchButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SearchButton;
+        
+        /// <summary>
+        /// PlaceHolder1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
     }
 }

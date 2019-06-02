@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="WebRole1.MainPage" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="WebRole1.Shop" %>
 
 <!DOCTYPE html>
 
@@ -83,12 +82,12 @@
             width: 227px;
             height: 19px;
         }
-        .auto-style16 {
-            position: absolute;
-            left: 658px;
-            top: 29px;
+        .oneline
+        {
+            display:inline-block;
         }
     </style>
+    
 </head>
 <body>
     <body bgcolor="#B6B6B6">
@@ -114,7 +113,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:ImageButton ID="LogInButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogInLogo.png" Width="79px" OnClick="LogInButton_Click" CssClass="auto-style5" />
                      <asp:ImageButton ID="RegisterButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/SignUpLogo.png" Width="79px" OnClick="RegisterButton_Click" CssClass="auto-style4" />
 
-                    <%} %><%else
+                    <%} %>                    <%else
                         {
                             UserAccountButton.Text = Session["username"].ToString();%>
                     <asp:LinkButton ID="UserAccountButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style14" OnClick="UserAccountButton_Click" ></asp:LinkButton>
@@ -126,7 +125,7 @@
                     <asp:LinkButton ID="FeaturesButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style9" OnClick="FeaturesButton_Click">FEATURES</asp:LinkButton>
                     <asp:LinkButton ID="AboutUsButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style10" OnClick="AboutUsButton_Click">ABOUT US</asp:LinkButton>
                     <asp:LinkButton ID="ContactButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style11" OnClick="ContactButton_Click">CONTACT</asp:LinkButton>
-                    <asp:LinkButton ID="ShopButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" OnClick="ShopButton_Click"  CssClass="auto-style16" Font-Size="Medium" Font-Underline="False">SHOP</asp:LinkButton>
+                    
                 <br />
                     
                 <br />&nbsp;
@@ -139,22 +138,41 @@
 
             <br />
 
-            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="HELLO!"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="SHOP"></asp:Label>
 
             <br />
             <br />
-            Welcome to CoffeeIOT, 
-
-            an interactive Coffee Machine app that can automate brewing of<br />
-            your coffee machine minutes before your morning starts.<br />
+            
+            <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="SearchButton" runat="server" OnClick="SearchButton_Click" Text="Search" />
+            
             <br />
+            <br />
+            <br />
+            
+            
+            
+            <div class="oneline">
+                <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+            </div>
             
             
             
             <br />
 
+            
+            <script type="text/javascript">
+                function ViewDetails() {
+                    var value = event.srcElement.id;
 
+                    
+                }
+            </script>
+            
         </form>
 </body>
 
 </html>
+
+
