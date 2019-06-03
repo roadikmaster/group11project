@@ -61,8 +61,7 @@ namespace WebRole1
             string username = usernameText.Text;
             string password = passwordText.Text;
             string email = emailText.Text;
-
-
+            
             try
             {
                 SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
@@ -83,11 +82,6 @@ namespace WebRole1
             {
                 RegErrorMsg.Text = "Account already existed";
             }
-
-
-            
-            
-            
         }
         //cancel registration and redirect user back to main page.
         protected void CancelButton_Click(object sender, EventArgs e)

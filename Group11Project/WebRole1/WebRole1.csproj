@@ -97,6 +97,7 @@
   <ItemGroup>
     <Content Include="AboutUsPage.aspx" />
     <Content Include="AccountProfile.aspx" />
+    <Content Include="AdminAddProduct.aspx" />
     <Content Include="AdminModifyUserAccount.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ContactInformation.txt" />
@@ -118,7 +119,6 @@
     <Content Include="SkeletonPagePublic.aspx" />
     <Content Include="SupportInformation.txt" />
     <Content Include="TempFunction.aspx" />
-    <Content Include="ViewHistoryPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
@@ -136,6 +136,13 @@
     </Compile>
     <Compile Include="AccountProfile.aspx.designer.cs">
       <DependentUpon>AccountProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddProduct.aspx.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAddProduct.aspx.designer.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminModifyUserAccount.aspx.cs">
       <DependentUpon>AdminModifyUserAccount.aspx</DependentUpon>
@@ -235,13 +242,6 @@
     </Compile>
     <Compile Include="TempFunction.aspx.designer.cs">
       <DependentUpon>TempFunction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewHistoryPage.aspx.cs">
-      <DependentUpon>ViewHistoryPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewHistoryPage.aspx.designer.cs">
-      <DependentUpon>ViewHistoryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebRole.cs" />
     <Compile Include="WelcomePage.aspx.cs">

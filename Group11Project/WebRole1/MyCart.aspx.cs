@@ -11,7 +11,7 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)

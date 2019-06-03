@@ -75,7 +75,10 @@ namespace WebRole1
         {
             Response.Redirect("ViewHistoryPage.aspx");
         }
-        
 
+        protected void AddProductButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminAddProduct.aspx");
+        }
     }
 }

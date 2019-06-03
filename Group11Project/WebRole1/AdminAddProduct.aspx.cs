@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebRole1
+{
+    public partial class AdminAddProduct : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["username"] = null;
+            Server.Transfer("MainPage.aspx");
+        }
+
+        protected void UserAccountButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
+        }
+
+        protected void HomeButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainPage.aspx");
+        }
+
+        protected void FeaturesButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Features.aspx");
+        }
+
+        protected void AboutUsButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AboutUsPage.aspx");
+        }
+
+        protected void ContactButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ContactPage.aspx");
+        }
+
+        protected void ShopButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Shop.aspx");
+        }
+
+        protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MyCart.aspx");
+        }
+
+        protected void CancelButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
+        }
+
+        protected void AddButton_Click(object sender, EventArgs e)
+        {
+            string name = NameText.Text;
+            string category = CategoryText.Text;
+            string description = DescriptionText.Text;
+            string url = ImageURLText.Text;
+            string price = PriceText.Text;
+
+            try
+            {
+                SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO Product (name, category, imageURL, description, price) VALUES (@name, @category, @url, @description, @price)", con);
+                cmd.Parameters.Add(new SqlParameter("name", name));
+                cmd.Parameters.Add(new SqlParameter("category", category));
+                cmd.Parameters.Add(new SqlParameter("url", url));
+                cmd.Parameters.Add(new SqlParameter("description", description));
+                cmd.Parameters.Add(new SqlParameter("price", price));
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                
+            }
+            catch (SqlException ee)
+            {
+                
+            }
+
+            MessageLabel.Text = "Successful added new product.";
+        }
+    }
+}

@@ -121,12 +121,12 @@
             <br />
             <%if (Session["accountType"].Equals("Admin"))
                     {%>        
-                        <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ADMIN ACCOUNT MANAGEMENT"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ADMINISTRATOR FUNCTIONS"></asp:Label>
                         <br />
                         <br />
                         <asp:LinkButton ID="AdminModifyAccountButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AdminModifyAccountButton_Click">Modify Account of Another User</asp:LinkButton>
                         <br />
-            <asp:LinkButton ID="AdminViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False">View Recent Usage History of Another User</asp:LinkButton>
+            <asp:LinkButton ID="AddProductButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AddProductButton_Click">Add New Product</asp:LinkButton>
                         <br />
                         <br />
             <%} %>
@@ -138,7 +138,6 @@
             <asp:LinkButton ID="FunctionButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="FunctionButton_Click">Upcoming function</asp:LinkButton>
 
             <br />
-            <asp:LinkButton ID="ViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewHistoryButton_Click">View Recent Usage History</asp:LinkButton>
             <br />
             
 
