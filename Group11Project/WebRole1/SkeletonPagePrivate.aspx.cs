@@ -45,5 +45,10 @@ namespace WebRole1
         {
             Response.Redirect("ContactPage.aspx");
         }
+
+        protected void ShopButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Shop.aspx");
+        }
     }
 }

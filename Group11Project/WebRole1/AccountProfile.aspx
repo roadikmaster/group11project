@@ -74,7 +74,12 @@
             top: 202px;
             width: 400px;
         }
-        
+        .auto-style18 {
+            text-decoration:none;
+            position: absolute;
+            left: 658px;
+            top: 29px;
+        }
         </style>
 </head>
 <body>
@@ -107,7 +112,7 @@
                     <asp:LinkButton ID="FeaturesButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style9" OnClick="FeaturesButton_Click">FEATURES</asp:LinkButton>
                     <asp:LinkButton ID="AboutUsButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style10" OnClick="AboutUsButton_Click">ABOUT US</asp:LinkButton>
                     <asp:LinkButton ID="ContactButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style11"  OnClick="ContactButton_Click">CONTACT</asp:LinkButton>
-                    
+                    <asp:LinkButton ID="ShopButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style18" OnClick="ShopButton_Click">SHOP</asp:LinkButton>
                 <br />
                     
                 <br />&nbsp;

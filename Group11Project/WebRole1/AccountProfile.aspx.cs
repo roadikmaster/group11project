@@ -70,6 +70,11 @@ namespace WebRole1
             Response.Redirect("ContactPage.aspx");
         }
 
+        protected void ShopButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Shop.aspx");
+        }
+
         //send user back to Welcome Page
         protected void BackButton_Click(object sender, EventArgs e)
         {
