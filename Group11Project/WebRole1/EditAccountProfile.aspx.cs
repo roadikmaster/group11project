@@ -12,8 +12,7 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Div1.Attributes.Add("style", "background-color:Black;");
-
+            
             string username = Session["username"].ToString();
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");

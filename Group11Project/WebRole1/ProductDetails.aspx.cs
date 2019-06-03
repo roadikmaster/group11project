@@ -12,8 +12,7 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Div1.Attributes.Add("style", "background-color:Black;");
-
+            
             string value = Session["productID"].ToString();
             IDLabel.Text = value;
 
@@ -132,7 +131,7 @@ namespace WebRole1
 
         protected void AddToCartButton_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

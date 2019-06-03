@@ -93,7 +93,7 @@
     <body bgcolor="#B6B6B6">
     <form id="form1" runat="server" class="auto-style12">
 
-        <div id="Div1" runat="server" class="auto-style6">
+        <div style="background-color:black;" id="Div1" runat="server" class="auto-style6">
             
                 <p class="auto-style1">
             

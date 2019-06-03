@@ -13,7 +13,7 @@ namespace WebRole1
         //get user data collected by the login page earlier
         protected void Page_Load(object sender, EventArgs e)
         {
-            Div1.Attributes.Add("style", "background-color:Black;");
+            
 
             string username = Session["username"].ToString();
 

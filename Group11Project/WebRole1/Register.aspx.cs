@@ -13,7 +13,7 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Div1.Attributes.Add("style", "background-color:Black;");
+           
         }
 
         //compare login details with the ones from the database, if all user credentials are valid, logs the user in.

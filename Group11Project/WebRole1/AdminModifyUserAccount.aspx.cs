@@ -12,7 +12,7 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Div1.Attributes.Add("style", "background-color:Black;");
+            
         }
 
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
