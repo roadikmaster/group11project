@@ -7,14 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace WebRole1
 {
-    public partial class WelcomePage : System.Web.UI.Page
+    public partial class MyCart : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
         {
             Session["username"] = null;
@@ -55,27 +54,5 @@ namespace WebRole1
         {
             Response.Redirect("MyCart.aspx");
         }
-
-        protected void AccountProfileButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AccountProfile.aspx");
-        }
-
-        protected void FunctionButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("TempFunction.aspx");
-        }
-
-        protected void AdminModifyAccountButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AdminModifyUserAccount.aspx");
-        }
-
-        protected void ViewHistoryButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ViewHistoryPage.aspx");
-        }
-        
-
     }
 }

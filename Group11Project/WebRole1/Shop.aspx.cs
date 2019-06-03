@@ -177,6 +177,11 @@ namespace WebRole1
             Response.Redirect("Shop.aspx");
         }
 
+        protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MyCart.aspx");
+        }
+
         protected void SearchButton_Click(object sender, EventArgs e)
         {
 
@@ -290,5 +295,7 @@ namespace WebRole1
             Session["productID"] = button.ID;
             Server.Transfer("ProductDetails.aspx");
         }
+
+
     }
 }

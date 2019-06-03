@@ -51,6 +51,11 @@ namespace WebRole1
             Response.Redirect("Shop.aspx");
         }
 
+        protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MyCart.aspx");
+        }
+
         protected void EditUserAccountButton_Click(object sender, EventArgs e)
         {
             string accountID = UserAccountIDText.Text;

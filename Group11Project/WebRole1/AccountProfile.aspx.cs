@@ -75,6 +75,11 @@ namespace WebRole1
             Response.Redirect("Shop.aspx");
         }
 
+        protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MyCart.aspx");
+        }
+
         //send user back to Welcome Page
         protected void BackButton_Click(object sender, EventArgs e)
         {

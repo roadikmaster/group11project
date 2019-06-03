@@ -108,6 +108,7 @@
     <Content Include="ImageAssets\LogOutLogo.png" />
     <Content Include="ImageAssets\ViewMyCart.png" />
     <Content Include="MainPage.aspx" />
+    <Content Include="MyCart.aspx" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterSuccessful.aspx" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyCart.aspx.cs">
+      <DependentUpon>MyCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyCart.aspx.designer.cs">
+      <DependentUpon>MyCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>

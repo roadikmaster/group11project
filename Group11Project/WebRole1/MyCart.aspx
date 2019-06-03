@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WelcomePage.aspx.cs" Inherits="WebRole1.WelcomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyCart.aspx.cs" Inherits="WebRole1.MyCart" %>
 
 <!DOCTYPE html>
 
@@ -65,6 +65,7 @@
             left: 658px;
             top: 29px;
         }
+        
         </style>
 </head>
 <body>
@@ -91,7 +92,7 @@
                         }%>
                     <asp:LinkButton ID="UserAccountButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style14" OnClick="UserAccountButton_Click" ></asp:LinkButton>
                     <asp:ImageButton ID="LogOutButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogOutLogo.png" Width="79px" CssClass="auto-style13" OnClick="LogOutButton_Click" />
-                     <asp:ImageButton ID="ViewMyCartButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/ViewMyCart.png" Width="79px" OnClick="ViewMyCartButton_Click" CssClass="auto-style4" />
+                    <asp:ImageButton ID="ViewMyCartButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/ViewMyCart.png" Width="79px" OnClick="ViewMyCartButton_Click" CssClass="auto-style4" />
                    
                 <br />
                     <asp:LinkButton ID="HomeButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style8" OnClick="HomeButton_Click">HOME</asp:LinkButton>
@@ -110,36 +111,11 @@
                 </div>
 
             <br />
-            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ACCOUNT MANAGEMENT"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="CART"></asp:Label>
+            <br />
 
-            <br />
-            <br />
-            <asp:LinkButton ID="AccountProfileButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AccountProfileButton_Click">Account Profile</asp:LinkButton>
+            <p>Only use this page template if the user is required to log in!</p>
 
-            <br />
-            <br />
-            <br />
-            <%if (Session["accountType"].Equals("Admin"))
-                    {%>        
-                        <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ADMIN ACCOUNT MANAGEMENT"></asp:Label>
-                        <br />
-                        <br />
-                        <asp:LinkButton ID="AdminModifyAccountButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AdminModifyAccountButton_Click">Modify Account of Another User</asp:LinkButton>
-                        <br />
-            <asp:LinkButton ID="AdminViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False">View Recent Usage History of Another User</asp:LinkButton>
-                        <br />
-                        <br />
-            <%} %>
-            
-            
-            <asp:Label ID="Label3" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="FUNCTION MANAGEMENT"></asp:Label>
-            <br />
-            <br />
-            <asp:LinkButton ID="FunctionButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="FunctionButton_Click">Upcoming function</asp:LinkButton>
-
-            <br />
-            <asp:LinkButton ID="ViewHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewHistoryButton_Click">View Recent Usage History</asp:LinkButton>
-            <br />
             
 
     </form>
@@ -147,3 +123,5 @@
         
 </body>
 </html>
+
+

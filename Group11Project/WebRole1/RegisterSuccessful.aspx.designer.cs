@@ -103,6 +103,15 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.ImageButton LogOutButton;
         
         /// <summary>
+        /// ViewMyCartButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ViewMyCartButton;
+        
+        /// <summary>
         /// HomeButton control.
         /// </summary>
         /// <remarks>
