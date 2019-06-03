@@ -89,5 +89,10 @@ namespace WebRole1
         {
             Response.Redirect("Shop.aspx");
         }
+
+        protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("SkeletonPagePrivate.aspx");
+        }
     }
 }
