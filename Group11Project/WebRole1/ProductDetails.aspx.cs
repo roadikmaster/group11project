@@ -142,7 +142,7 @@ namespace WebRole1
                                             
 
 
-            ErrorLabel.Text = "Successfully added item to your cart" + QuantityText.Text;
+            ErrorLabel.Text = "Successfully added item to your cart";
         }
     }
 }

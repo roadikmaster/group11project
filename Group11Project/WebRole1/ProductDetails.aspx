@@ -216,12 +216,6 @@
                     document.getElementById("QuantityText").value = input;
                         return false;
              }
-
-               
-
-
-
-
             </script>
         </form>
     </body>
