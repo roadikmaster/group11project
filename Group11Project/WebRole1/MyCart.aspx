@@ -71,9 +71,6 @@
 <body>
     <body bgcolor="#B6B6B6">
         <form id="form1" runat="server" class="auto-style7">
-        
-        
-            
             <div style="background-color:black;" id="Div1" runat="server" class="auto-style6">
             
                 <p class="auto-style1">
@@ -113,11 +110,6 @@
             <br />
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="CART"></asp:Label>
             <br />
-
-            
-
-            
-
             <br />
             <br />
             <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
@@ -126,9 +118,6 @@
             <br />
             <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="TOTAL: " ForeColor="Red"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="TotalPriceLabel" runat="server" Font-Names="Arial Black" Font-Size="X-Large" ForeColor="Red"></asp:Label>
             
-
-            
-
             <br />
             <br />
             <asp:Button ID="PayButton" runat="server" OnClick="PayButton_Click" Text="Pay" Width="67px" />

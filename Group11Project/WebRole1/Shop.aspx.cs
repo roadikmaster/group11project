@@ -57,8 +57,7 @@ namespace WebRole1
             {
                 while (reader.Read())
                 {
-
-
+                    
                     row = new TableRow();
 
                     cell1 = new TableCell();
@@ -191,36 +190,7 @@ namespace WebRole1
             string category = "Drink";
 
             
-
-            Table table = new Table();
-            table.BorderWidth = 1;
             
-            TableHeaderRow header = new TableHeaderRow();
-            table.Rows.Add(header);
-            TableHeaderCell header1 = new TableHeaderCell();
-            header1.Text = "Product ID";
-            header.Cells.Add(header1);
-            TableHeaderCell header2 = new TableHeaderCell();
-            header2.Text = "Name";
-            header.Cells.Add(header2);
-            TableHeaderCell header3 = new TableHeaderCell();
-            header3.Text = "Category";
-            header.Cells.Add(header3);
-            TableHeaderCell header4 = new TableHeaderCell();
-            header4.Text = "Price";
-            header.Cells.Add(header4);
-            TableHeaderCell header5 = new TableHeaderCell();
-            header5.Text = "Details";
-            header.Cells.Add(header5);
-
-
-            TableRow row;
-            TableCell cell1;
-            TableCell cell2;
-            TableCell cell3;
-            TableCell cell4;
-            TableCell cell5;
-
             
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
@@ -239,12 +209,38 @@ namespace WebRole1
             
             SqlDataReader reader = cmd.ExecuteReader();
            
-            
-
-
-            
             if (reader.HasRows)
             {
+                int count = 0;
+
+                Table table = new Table();
+                table.BorderWidth = 1;
+
+                TableHeaderRow header = new TableHeaderRow();
+                table.Rows.Add(header);
+                TableHeaderCell header1 = new TableHeaderCell();
+                header1.Text = "Product ID";
+                header.Cells.Add(header1);
+                TableHeaderCell header2 = new TableHeaderCell();
+                header2.Text = "Name";
+                header.Cells.Add(header2);
+                TableHeaderCell header3 = new TableHeaderCell();
+                header3.Text = "Category";
+                header.Cells.Add(header3);
+                TableHeaderCell header4 = new TableHeaderCell();
+                header4.Text = "Price";
+                header.Cells.Add(header4);
+                TableHeaderCell header5 = new TableHeaderCell();
+                header5.Text = "Details";
+                header.Cells.Add(header5);
+
+
+                TableRow row;
+                TableCell cell1;
+                TableCell cell2;
+                TableCell cell3;
+                TableCell cell4;
+                TableCell cell5;
                 while (reader.Read())
                 {
                     
@@ -277,15 +273,19 @@ namespace WebRole1
 
                     table.Rows.Add(row);
 
+                    count++;
+
                 }
+                PlaceHolder1.Controls.Add(table);
+                ResultLabel.Text = "Search gave " + count.ToString() + " results.";
             }
             
             else
             {
-                
+                ResultLabel.Text = "Search gave 0 results.";
             }
 
-            PlaceHolder1.Controls.Add(table);
+            
             con.Close();
         }
 

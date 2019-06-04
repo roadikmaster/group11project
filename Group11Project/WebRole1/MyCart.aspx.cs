@@ -11,6 +11,7 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             Table table = new Table();
             table.BorderWidth = 1;
 
@@ -38,7 +39,11 @@ namespace WebRole1
             header7.Text = "Delete";
             header.Cells.Add(header7);
 
+
             PlaceHolder1.Controls.Add(table);
+            */
+
+            
         }
 
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)

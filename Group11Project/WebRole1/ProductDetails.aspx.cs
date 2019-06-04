@@ -139,12 +139,7 @@ namespace WebRole1
 
         protected void AddToCartButton_Click(object sender, EventArgs e)
         {
-
-            ArrayList a1 = new ArrayList();
-            a1.Add(new Item(NameLabel.Text, QuantityText.Text));
-
-
-
+            
             ErrorLabel.Text = "Successfully added item to your cart";
         }
     }
