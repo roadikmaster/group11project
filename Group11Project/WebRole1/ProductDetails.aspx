@@ -93,6 +93,18 @@
             left: 658px;
             top: 29px;
         }
+        .itemCount {
+            position: absolute;
+            display: none;
+            top: -10px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: red;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +137,7 @@
                     <asp:LinkButton ID="UserAccountButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style14" OnClick="UserAccountButton_Click"></asp:LinkButton>
                     <asp:ImageButton ID="LogOutButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/LogOutLogo.png" Width="79px" CssClass="auto-style13" OnClick="LogOutButton_Click" />
                     <asp:ImageButton ID="ViewMyCartButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/ViewMyCart.png" Width="79px" OnClick="ViewMyCartButton_Click" CssClass="auto-style4" />
+                  
                     <%} %>
 
                     <br />
@@ -159,7 +172,7 @@
             &nbsp;<asp:TextBox ID="QuantityText" runat="server" ReadOnly="true" Width="28px" Value="1"></asp:TextBox>
             &nbsp;<asp:Button ID="IncreaseButton" runat="server" OnClientClick="return increase('100')" Text="+" Width="26px" />
             &nbsp;
-            <asp:Button ID="AddToCartButton" runat="server" OnClick="AddToCartButton_Click" Text="Add Item to Cart" />
+            <asp:Button ID="AddToCartButton" runat="server" OnClick="AddToCartButton_Click" Text="Add Item to Cart" class="add"/>
             &nbsp;&nbsp;
             <asp:Button ID="BackButton" runat="server" OnClick="BackButton_Click" Text="Back to Shop" />
             <br />
@@ -194,28 +207,35 @@
 
 
             <script type="text/javascript">
-
-                var item = [];
-                var input=document.getElementById("QuantityText").value;
+                var itemCount = 0;        
+                var input=parseInt(document.getElementById("QuantityText").value);
                 function decrease(min) {
-                 input-= input;
+                input=input -1;
                     if (input <= parseInt(min)) {
                      input = min;
                     }
-                dosage.pop(dosage :input);
+                    document.getElementById("QuantityText").value = input;
                     return false;
                 }
 
                 function increase(max) {
                     
                      input= parseInt(input) + 1;
-                     dosage.push(dosage:input);
+                
 
                     if (input >= parseInt(max)) {
                       input.value = max;
                     }
-                    return false;
+                
+                    document.getElementById("QuantityText").value = input;
+                        return false;
              }
+
+               
+
+
+
+
             </script>
         </form>
     </body>

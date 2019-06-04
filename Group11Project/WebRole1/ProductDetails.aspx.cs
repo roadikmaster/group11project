@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebRole1.Model;
 
 namespace WebRole1
 {
@@ -137,10 +138,9 @@ namespace WebRole1
 
         protected void AddToCartButton_Click(object sender, EventArgs e)
         {
+            
 
-           
-
-
+            string 
 
 
             ErrorLabel.Text = "Successfully added item to your cart";
