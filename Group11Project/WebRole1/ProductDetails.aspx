@@ -199,10 +199,20 @@
 
                 function increase(max) {
                     document.getElementById("QuantityText").value = parseInt(document.getElementById("QuantityText").value) + 1;
+                       myshopingitem.push();
+
                     if (document.getElementById("QuantityText").value >= parseInt(max)) {
                        document.getElementById("QuantityText").value = max;
                     }
                     return false;
+                 
+
+
+
+
+
+
+
                 }
             </script>
         </form>
