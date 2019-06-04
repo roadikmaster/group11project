@@ -5,10 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script
-        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-        crossorigin="anonymous"></script>
+    
     <title></title>
     <style type="text/css">
         #form1 {
@@ -210,7 +207,7 @@
                 var itemCount = 0;        
                 var input=parseInt(document.getElementById("QuantityText").value);
                 function decrease(min) {
-                input=input -1;
+                    input = parseInt(input) - 1;
                     if (input <= parseInt(min)) {
                      input = min;
                     }
