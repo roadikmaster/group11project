@@ -188,6 +188,7 @@
 
 
             <script type="text/javascript">
+                var myshopingitem = [];
                 function decrease(min) {
                     document.getElementById("QuantityText").value = parseInt(document.getElementById("QuantityText").value) - 1;
                     if (document.getElementById("QuantityText").value <= parseInt(min)) {
