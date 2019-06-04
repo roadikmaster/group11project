@@ -93,18 +93,7 @@
             left: 658px;
             top: 29px;
         }
-        .itemCount {
-            position: absolute;
-            display: none;
-            top: -10px;
-            left: -10px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: red;
-            color: white;
-            text-align: center;
-        }
+      
     </style>
 </head>
 <body>
