@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="WebRole1.ProductDetails" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -188,21 +189,24 @@
 
 
             <script type="text/javascript">
-                var myshopingitem = [];
+                var item = [];
+                var input=document.getElementById("QuantityText").value;
                 function decrease(min) {
-                    document.getElementById("QuantityText").value = parseInt(document.getElementById("QuantityText").value) - 1;
-                    if (document.getElementById("QuantityText").value <= parseInt(min)) {
-                       document.getElementById("QuantityText").value = min;
+                 input-= input;
+                    if (input <= parseInt(min)) {
+                     input = min;
                     }
+                dosage.pop(dosage :input);
                     return false;
                 }
 
                 function increase(max) {
-                    document.getElementById("QuantityText").value = parseInt(document.getElementById("QuantityText").value) + 1;
-                       myshopingitem.push();
+                    
+                     input= parseInt(input) + 1;
+                     dosage.push(dosage:input);
 
-                    if (document.getElementById("QuantityText").value >= parseInt(max)) {
-                       document.getElementById("QuantityText").value = max;
+                    if (input >= parseInt(max)) {
+                      input.value = max;
                     }
                     return false;
                  
