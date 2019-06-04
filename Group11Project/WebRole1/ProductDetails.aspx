@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-  
+    
     <title></title>
     <style type="text/css">
         #form1 {
@@ -196,7 +196,7 @@
                 var itemCount = 0;        
                 var input=parseInt(document.getElementById("QuantityText").value);
                 function decrease(min) {
-                input=input -1;
+                    input = parseInt(input) - 1;
                     if (input <= parseInt(min)) {
                      input = min;
                     }
@@ -206,7 +206,8 @@
 
                 function increase(max) {
                     
-                     input= parseInt(input) + 1;               
+                     input= parseInt(input) + 1;
+                
 
                     if (input >= parseInt(max)) {
                       input.value = max;
