@@ -15,8 +15,9 @@ namespace WebRole1
             
             string value = Session["productID"].ToString();
             IDLabel.Text = value;
-
-            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        
+      
+        SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"SELECT * FROM Product WHERE productID=@id AND isDeleted=0", con);
             cmd.Parameters.Add(new SqlParameter("id", value));
@@ -137,6 +138,7 @@ namespace WebRole1
         protected void AddToCartButton_Click(object sender, EventArgs e)
         {
 
+           
 
 
 
