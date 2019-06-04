@@ -27,7 +27,7 @@ namespace WebRole1
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "'", con);
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "' and isDeleted=0", con);
             SqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows)
@@ -61,7 +61,7 @@ namespace WebRole1
                     con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                     con.Open();
 
-                    cmd = new SqlCommand(@"UPDATE Account SET password=@newpassword WHERE username=@username", con);
+                    cmd = new SqlCommand(@"UPDATE Account SET password=@newpassword WHERE username=@username and isDeleted=0", con);
                     cmd.Parameters.Add(new SqlParameter("username", username));
                     cmd.Parameters.Add(new SqlParameter("newpassword", newPassword));
 
