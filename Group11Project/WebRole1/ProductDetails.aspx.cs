@@ -18,7 +18,7 @@ namespace WebRole1
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Product WHERE productID=@id", con);
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Product WHERE productID=@id AND isDeleted=0", con);
             cmd.Parameters.Add(new SqlParameter("id", value));
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -59,7 +59,7 @@ namespace WebRole1
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "' and password='" + password + "'", con);
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + username + "' and password='" + password + "' and isDeleted=0", con);
             SqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows)
@@ -71,7 +71,7 @@ namespace WebRole1
                     Session["accountType"] = accountType;
                 }
 
-                Server.Transfer("MainPage.aspx");
+                Server.Transfer("ProductDetails.aspx");
             }
             else
             {
@@ -136,7 +136,12 @@ namespace WebRole1
 
         protected void AddToCartButton_Click(object sender, EventArgs e)
         {
-            
+
+
+
+
+
+            ErrorLabel.Text = "Successfully added item to your cart";
         }
     }
 }

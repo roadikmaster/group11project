@@ -73,7 +73,7 @@ namespace WebRole1
                     SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"UPDATE Account SET email=@newemail WHERE accountID=@accountID", con);
+                    SqlCommand cmd = new SqlCommand(@"UPDATE Account SET email=@newemail WHERE accountID=@accountID and isDeleted=0", con);
                     cmd.Parameters.Add(new SqlParameter("accountID", accountID));
                     cmd.Parameters.Add(new SqlParameter("newemail", newemail));
 
@@ -111,8 +111,9 @@ namespace WebRole1
                     SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                     con.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"DELETE FROM Account WHERE accountID=@accountID", con);
+                    SqlCommand cmd = new SqlCommand(@"UPDATE Account SET isDeleted=@isDeleted WHERE accountID=@accountID and isDeleted=0", con);
                     cmd.Parameters.Add(new SqlParameter("accountID", accountID));
+                    cmd.Parameters.Add(new SqlParameter("isDeleted", 1));
                     
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -182,7 +183,7 @@ namespace WebRole1
                 {
                     SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where accountID='" + userID + "'", con);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where accountID='" + userID + "' and isDeleted=0", con);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.HasRows)
@@ -220,7 +221,7 @@ namespace WebRole1
             {
                 SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 con.Open();
-                SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + searchText + "'", con);
+                SqlCommand cmd = new SqlCommand(@"SELECT * FROM Account where username='" + searchText + "' and isDeleted=0", con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.HasRows)

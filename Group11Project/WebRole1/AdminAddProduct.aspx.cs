@@ -75,12 +75,13 @@ namespace WebRole1
                 SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand(@"INSERT INTO Product (name, category, imageURL, description, price) VALUES (@name, @category, @url, @description, @price)", con);
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO Product (name, category, imageURL, description, price, isDeleted) VALUES (@name, @category, @url, @description, @price, @isDeleted)", con);
                 cmd.Parameters.Add(new SqlParameter("name", name));
                 cmd.Parameters.Add(new SqlParameter("category", category));
                 cmd.Parameters.Add(new SqlParameter("url", url));
                 cmd.Parameters.Add(new SqlParameter("description", description));
                 cmd.Parameters.Add(new SqlParameter("price", price));
+                cmd.Parameters.Add(new SqlParameter("isDeleted", 0));
 
                 cmd.ExecuteNonQuery();
                 con.Close();
