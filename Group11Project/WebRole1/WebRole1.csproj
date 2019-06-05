@@ -186,7 +186,6 @@
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Item.cs" />
     <Compile Include="MyCart.aspx.cs">
       <DependentUpon>MyCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

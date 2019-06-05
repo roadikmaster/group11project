@@ -155,7 +155,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label8" runat="server" Font-Bold="True" Font-Names="Arial" Text="Quantity: "></asp:Label>
             <asp:Button ID="DecreaseButton" runat="server" OnClientClick="return decrease('1')" Text="-" Width="26px" />
-            &nbsp;<asp:TextBox ID="QuantityText" runat="server" ReadOnly="true" Width="28px" Value="1"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="QuantityText" runat="server" Width="28px" Value="1"></asp:TextBox>
             &nbsp;<asp:Button ID="IncreaseButton" runat="server" OnClientClick="return increase('100')" Text="+" Width="26px" />
             &nbsp;
             <asp:Button ID="AddToCartButton" runat="server" OnClick="AddToCartButton_Click" Text="Add Item to Cart" class="add"/>

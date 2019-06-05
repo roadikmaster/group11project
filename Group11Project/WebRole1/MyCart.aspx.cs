@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,39 +12,124 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            Table table = new Table();
-            table.BorderWidth = 1;
+            string username = Session["username"].ToString();
 
-            TableHeaderRow header = new TableHeaderRow();
-            table.Rows.Add(header);
-            TableHeaderCell header1 = new TableHeaderCell();
-            header1.Text = "Product ID";
-            header.Cells.Add(header1);
-            TableHeaderCell header2 = new TableHeaderCell();
-            header2.Text = "Name";
-            header.Cells.Add(header2);
-            TableHeaderCell header3 = new TableHeaderCell();
-            header3.Text = "Quantity";
-            header.Cells.Add(header3);
-            TableHeaderCell header4 = new TableHeaderCell();
-            header4.Text = "Price per Item";
-            header.Cells.Add(header4);
-            TableHeaderCell header5 = new TableHeaderCell();
-            header5.Text = "Price";
-            header.Cells.Add(header5);
-            TableHeaderCell header6 = new TableHeaderCell();
-            header6.Text = "Details/Edit";
-            header.Cells.Add(header6);
-            TableHeaderCell header7 = new TableHeaderCell();
-            header7.Text = "Delete";
-            header.Cells.Add(header7);
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"SELECT Product.productID,name,quantity,price FROM Account,CartItem,Cart,Product WHERE Product.productID=CartItem.productID AND Cart.cartID=CartItem.cartID AND Account.accountID=Cart.accountID AND username=@username", con);
+            cmd.Parameters.Add(new SqlParameter("username", username));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                Table table = new Table();
+                table.BorderWidth = 1;
+
+                TableHeaderRow header = new TableHeaderRow();
+                table.Rows.Add(header);
+                TableHeaderCell header1 = new TableHeaderCell();
+                header1.Text = "Product ID";
+                header.Cells.Add(header1);
+                TableHeaderCell header2 = new TableHeaderCell();
+                header2.Text = "Name";
+                header.Cells.Add(header2);
+                TableHeaderCell header3 = new TableHeaderCell();
+                header3.Text = "Quantity";
+                header.Cells.Add(header3);
+                TableHeaderCell header4 = new TableHeaderCell();
+                header4.Text = "Price per Item";
+                header.Cells.Add(header4);
+                TableHeaderCell header5 = new TableHeaderCell();
+                header5.Text = "Price";
+                header.Cells.Add(header5);
+                TableHeaderCell header6 = new TableHeaderCell();
+                header6.Text = "Details/Edit";
+                header.Cells.Add(header6);
+                TableHeaderCell header7 = new TableHeaderCell();
+                header7.Text = "Delete";
+                header.Cells.Add(header7);
+
+                TableRow row;
+                TableCell cell1;
+                TableCell cell2;
+                TableCell cell3;
+                TableCell cell4;
+                TableCell cell5;
+                TableCell cell6;
+                TableCell cell7;
+
+                
 
 
-            PlaceHolder1.Controls.Add(table);
-            */
+                while (reader.Read())
+                {
+                    row = new TableRow();
+
+                    cell1 = new TableCell();
+                    cell1.Text = reader[0].ToString();
+                    row.Cells.Add(cell1);
+
+                    cell2 = new TableCell();
+                    cell2.Text = reader[1].ToString();
+                    row.Cells.Add(cell2);
+
+                    cell3 = new TableCell();
+                    cell3.Text = reader[2].ToString();
+                    row.Cells.Add(cell3);
+
+                    cell4 = new TableCell();
+                    cell4.Text = reader[3].ToString();
+                    row.Cells.Add(cell4);
+
+                    cell5 = new TableCell();
+                    cell5.Text = multiply(float.Parse(reader[2].ToString()), float.Parse(reader[3].ToString())).ToString();
+                    row.Cells.Add(cell5);
+
+                    cell6 = new TableCell();
+                    Button editbutton = new Button();
+                    editbutton.ID = reader[0].ToString();
+                    editbutton.Text = "Edit";
+                    editbutton.Click += new EventHandler(this.Editbutton_Click);
+                    cell6.Controls.Add(editbutton);
+                    row.Cells.Add(cell6);
+
+                    cell7 = new TableCell();
+                    Button deletebutton = new Button();
+                    deletebutton.ID = reader[1].ToString();
+                    deletebutton.Text = "Delete";
+                    deletebutton.Click += new EventHandler(this.Deletebutton_Click);
+                    cell7.Controls.Add(deletebutton);
+                    row.Cells.Add(cell7);
+
+                    table.Rows.Add(row);
+                }
+
+                PlaceHolder1.Controls.Add(table);
+
+            }
+
+            else
+            {
+                string text = "<p>You currently have no items in your cart</p>";
+                PlaceHolder1.Controls.Add(new Literal { Text = text });
+                PayButton.Enabled = false;
+                ClearButton.Enabled = false;
+            }
+            con.Close();
 
             
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Label3.Text = "Delete" + button.ID;
+        }
+
+        private void Editbutton_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Label3.Text = "Edit" + button.ID;
         }
 
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
@@ -89,12 +175,28 @@ namespace WebRole1
 
         protected void PayButton_Click(object sender, EventArgs e)
         {
-
+            // TODO: if cart is empty, this button should be disabled.
+            // Link to pay page.
         }
 
         protected void ClearButton_Click(object sender, EventArgs e)
         {
+            string username = Session["username"].ToString();
 
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"DELETE FROM CartItem WHERE cartID IN (SELECT cartID FROM Cart WHERE accountID IN (SELECT accountID FROM Account WHERE username=@username))", con);
+            cmd.Parameters.Add(new SqlParameter("username", username));
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            Response.Redirect("MyCart.aspx");
+        }
+
+        protected float multiply(float a, float b)
+        {
+            float result = a * b;
+            return result;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebRole1.Model;
+
 
 namespace WebRole1
 {
@@ -17,9 +17,10 @@ namespace WebRole1
             
             string value = Session["productID"].ToString();
             IDLabel.Text = value;
+            QuantityText.Attributes.Add("readonly", "readonly");
         
       
-        SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"SELECT * FROM Product WHERE productID=@id AND isDeleted=0", con);
             cmd.Parameters.Add(new SqlParameter("id", value));
@@ -140,7 +141,78 @@ namespace WebRole1
         protected void AddToCartButton_Click(object sender, EventArgs e)
         {
             
-            ErrorLabel.Text = "Successfully added item to your cart";
+            string productID = Session["productID"].ToString();
+            string quantity = QuantityText.Text;
+            string username = Session["username"].ToString();
+            string cartID;
+
+            cartID = getCartID(username);
+
+            if (cartID.Equals("none"))
+            {
+                newCart(username);
+                
+            }
+
+            cartID = getCartID(username);
+
+            try
+            {
+                insertItemToCart(cartID, productID, quantity);
+
+                ErrorLabel.Text = "Successfully added item to your cart.";
+            }
+            catch (SqlException ee)
+            {
+                ErrorLabel.Text = "You already added this item into your cart.";
+                
+            }
+        }
+
+        protected string getCartID(string username)
+        {
+            string result;
+
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Cart WHERE accountID IN (SELECT accountID FROM Account WHERE username=@username)", con);
+            cmd.Parameters.Add(new SqlParameter("username", username));
+            SqlDataReader reader = cmd.ExecuteReader();
+            
+            if (reader.HasRows)
+            {
+                if (reader.Read())
+                {
+                    result = reader[0].ToString();
+                    con.Close();
+                    return result;
+                }
+
+            }
+            con.Close();
+            return "none";
+        }
+
+        protected void newCart(string username)
+        {
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO Cart(accountID) SELECT accountID FROM Account WHERE username=@username", con);
+            cmd.Parameters.Add(new SqlParameter("username", username));
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        protected void insertItemToCart(string cartID, string productID, string quantity)
+        {
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"INSERT INTO CartItem(cartID, productID, quantity) VALUES (@cartID, @productID, @quantity)", con);
+            cmd.Parameters.Add(new SqlParameter("cartID", cartID));
+            cmd.Parameters.Add(new SqlParameter("productID", productID));
+            cmd.Parameters.Add(new SqlParameter("quantity", quantity));
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
