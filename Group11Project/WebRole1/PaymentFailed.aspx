@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyCart.aspx.cs" Inherits="WebRole1.MyCart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentFailed.aspx.cs" Inherits="WebRole1.PaymentFailed" %>
 
 <!DOCTYPE html>
 
@@ -7,9 +7,8 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height:auto
+            height: 53px;
         }
-
         .auto-style1 {
             margin-left: 240px;
         }
@@ -67,25 +66,19 @@
             top: 29px;
         }
         
-        
-        .auto-style16 {
-            position: absolute;
-            top: 24px;
-            left: 15px;
-            right: 802px;
-        }
-        
-        
         </style>
 </head>
 <body>
     <body bgcolor="#B6B6B6">
         <form id="form1" runat="server" class="auto-style7">
+        
+        
+            
             <div style="background-color:black;" id="Div1" runat="server" class="auto-style6">
             
                 <p class="auto-style1">
             
-                &nbsp;&nbsp;<asp:ImageButton ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx"  Width="183px" CssClass="auto-style16" />
+                &nbsp;&nbsp;<asp:ImageButton style="position:absolute; top: 24px; left: 15px; right: 531px;" ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx"  Width="183px" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                                   
                     <%
@@ -118,44 +111,23 @@
                 </div>
 
             <br />
-            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="CART"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="PAYMENT FAILED"></asp:Label>
             <br />
-            <asp:Label ID="Label3" runat="server"></asp:Label>
+
+            <p style="font-family:Arial">Payment transaction failed! Please try again.
+            </p>
+
             <br />
-            <br />
-            <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-            <br />
-            <br />
-            <br />
-            <asp:Label ID="Label2" runat="server" Font-Names="Arial Black" Font-Size="X-Large" ForeColor="Red"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="TotalPriceLabel" runat="server" Font-Names="Arial Black" Font-Size="X-Large" ForeColor="Red"></asp:Label>
-            
-            <br />
-            <br />
-            
-            <asp:Button ID="PayButton" runat="server"  OnClick="PayButton_Click" Text="Pay" Width="67px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="ClearButton" runat="server" OnClick="ClearButton_Click" Text="Clear Cart" />
+
+            <asp:Button ID="CartButton" runat="server" Text="Back to Cart" OnClick="ViewOrderButton_Click" />
 
             
 
     </form>
-    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-
-
-    <input type="hidden" name="cmd" value="_xclick" />
-    <input type="hidden" name="business" value="youremailaddress@yourdomain.com" />
-
-    <input type="hidden" name="item_name" value="Cart Orders" />
-    <input type="hidden" name="amount" value="<%= Session["sum"].ToString() %>" /> 
-        <input type="hidden" name="currency_code" value="SEK" /> 
-    <input type="submit" value="Pay with Paypal" />
-
-    <input type="hidden" name="return" value="http://localhost:51963/PaymentSuccessful.aspx" />
-    <input type="hidden" name="cancel_return" value="http://localhost:51963/PaymentFailed.aspx">
-
-</form>
+        
         
 </body>
 </html>
+
 
 

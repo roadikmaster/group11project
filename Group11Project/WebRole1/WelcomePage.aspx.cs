@@ -83,7 +83,7 @@ namespace WebRole1
 
         protected void ViewCurrentOrdersButton_Click(object sender, EventArgs e)
         {
-            //TODO: View Current Customer's order
+            Response.Redirect("ViewCurrentOrders.aspx");
         }
 
         protected void OrdersHistoryButton_Click(object sender, EventArgs e)

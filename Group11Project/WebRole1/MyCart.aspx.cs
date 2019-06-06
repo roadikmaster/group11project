@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,10 +12,13 @@ namespace WebRole1
 {
     public partial class MyCart : System.Web.UI.Page
     {
+
+        double sum = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string username = Session["username"].ToString();
-            double sum = 0;
+            
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
@@ -111,6 +115,7 @@ namespace WebRole1
 
                 Label2.Text = "TOTAL: ";
                 TotalPriceLabel.Text = sum.ToString("F2", CultureInfo.InvariantCulture) + " SEK";
+                Session["sum"] = sum;
             }
 
             else
@@ -198,6 +203,8 @@ namespace WebRole1
         {
             // TODO: if cart is empty, this button should be disabled.
             // Link to pay page.
+
+            
         }
 
         protected void ClearButton_Click(object sender, EventArgs e)
@@ -219,5 +226,9 @@ namespace WebRole1
             double result = a * b;
             return Math.Round(result, 2);
         }
+
+        
+        
+        
     }
 }
