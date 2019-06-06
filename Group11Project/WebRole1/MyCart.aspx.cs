@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +14,7 @@ namespace WebRole1
         protected void Page_Load(object sender, EventArgs e)
         {
             string username = Session["username"].ToString();
+            double sum = 0;
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
@@ -82,8 +84,9 @@ namespace WebRole1
                     row.Cells.Add(cell4);
 
                     cell5 = new TableCell();
-                    cell5.Text = multiply(float.Parse(reader[2].ToString()), float.Parse(reader[3].ToString())).ToString();
+                    cell5.Text = multiply(double.Parse(reader[2].ToString()), double.Parse(reader[3].ToString())).ToString("F2", CultureInfo.InvariantCulture);
                     row.Cells.Add(cell5);
+                    sum += double.Parse(cell5.Text);
 
                     cell6 = new TableCell();
                     Button editbutton = new Button();
@@ -106,6 +109,8 @@ namespace WebRole1
 
                 PlaceHolder1.Controls.Add(table);
 
+                Label2.Text = "TOTAL: ";
+                TotalPriceLabel.Text = sum.ToString("F2", CultureInfo.InvariantCulture) + " SEK";
             }
 
             else
@@ -123,13 +128,29 @@ namespace WebRole1
         private void Deletebutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            Label3.Text = "Delete" + button.ID;
+
+            string username = Session["username"].ToString();
+            string productname = button.ID;
+
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"DELETE FROM CartItem WHERE cartID IN (SELECT cartID FROM Cart WHERE accountID IN (SELECT accountID FROM Account WHERE username=@username) AND productID IN (SELECT productID FROM Product WHERE name=@productname))", con);
+            cmd.Parameters.Add(new SqlParameter("username", username));
+            cmd.Parameters.Add(new SqlParameter("productname", productname));
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            Response.Redirect("MyCart.aspx");
         }
 
         private void Editbutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
             Label3.Text = "Edit" + button.ID;
+
+            Session["cartItemID"] = button.ID;
+
+            Response.Redirect("EditCartItem.aspx");
         }
 
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
@@ -193,10 +214,10 @@ namespace WebRole1
             Response.Redirect("MyCart.aspx");
         }
 
-        protected float multiply(float a, float b)
+        protected double multiply(double a, double b)
         {
-            float result = a * b;
-            return result;
+            double result = a * b;
+            return Math.Round(result, 2);
         }
     }
 }

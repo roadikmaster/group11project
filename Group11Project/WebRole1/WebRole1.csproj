@@ -102,6 +102,7 @@
     <Content Include="ChangePassword.aspx" />
     <Content Include="ContactInformation.txt" />
     <Content Include="ContactPage.aspx" />
+    <Content Include="EditCartItem.aspx" />
     <Content Include="Features.aspx" />
     <Content Include="EditAccountProfile.aspx" />
     <Content Include="ImageAssets\CoffeeMachineLogo.png" />
@@ -171,6 +172,13 @@
     </Compile>
     <Compile Include="EditAccountProfile.aspx.designer.cs">
       <DependentUpon>EditAccountProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCartItem.aspx.cs">
+      <DependentUpon>EditCartItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditCartItem.aspx.designer.cs">
+      <DependentUpon>EditCartItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Features.aspx.cs">
       <DependentUpon>Features.aspx</DependentUpon>

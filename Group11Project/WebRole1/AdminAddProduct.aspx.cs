@@ -85,14 +85,16 @@ namespace WebRole1
 
                 cmd.ExecuteNonQuery();
                 con.Close();
-                
+
+                MessageLabel.Text = "Successfully added new product in the Shop.";
+
             }
             catch (SqlException ee)
             {
-                
+                MessageLabel.Text = "Failed to add Product. Product already existed in the Shop.";
             }
 
-            MessageLabel.Text = "Successful added new product.";
+            
         }
     }
 }
