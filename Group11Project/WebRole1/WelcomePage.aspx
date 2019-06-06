@@ -128,14 +128,26 @@
                         <br />
             <asp:LinkButton ID="AddProductButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="AddProductButton_Click">Add New Product</asp:LinkButton>
                         <br />
+            <asp:LinkButton ID="ModifyDeleteProduct" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ModifyDeleteProduct_Click">Modify/Remove Product</asp:LinkButton>
+            <br />
+            <asp:LinkButton ID="ChangeOrderStatusButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ChangeOrderStatusButton_Click">Change Order Status</asp:LinkButton>
+                        <br />
                         <br />
             <%} %>
             
             
-            <asp:Label ID="Label3" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="FUNCTION MANAGEMENT"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ORDER MANAGEMENT"></asp:Label>
             <br />
             <br />
-            <asp:LinkButton ID="FunctionButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="FunctionButton_Click">Upcoming function</asp:LinkButton>
+            <asp:LinkButton ID="ViewCartButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewCartButton_Click">View Cart</asp:LinkButton>
+
+            <br />
+            
+
+            <asp:LinkButton ID="ViewCurrentOrdersButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewCurrentOrdersButton_Click">View Current Orders</asp:LinkButton>
+            <br />
+            <asp:LinkButton ID="OrdersHistoryButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="OrdersHistoryButton_Click">Orders History</asp:LinkButton>
+            
 
             <br />
             <br />

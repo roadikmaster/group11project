@@ -61,11 +61,6 @@ namespace WebRole1
             Response.Redirect("AccountProfile.aspx");
         }
 
-        protected void FunctionButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("TempFunction.aspx");
-        }
-
         protected void AdminModifyAccountButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminModifyUserAccount.aspx");
@@ -79,6 +74,33 @@ namespace WebRole1
         protected void AddProductButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminAddProduct.aspx");
+        }
+
+        protected void ViewCartButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MyCart.aspx");
+        }
+
+        protected void ViewCurrentOrdersButton_Click(object sender, EventArgs e)
+        {
+            //TODO: View Current Customer's order
+        }
+
+        protected void OrdersHistoryButton_Click(object sender, EventArgs e)
+        {
+            //TODO: View customer's past/completed orders.
+            //Initial Page should only contain the order list, when customer clicked one
+            //of the orders, it should display all the items in that order in a separate page.
+        }
+
+        protected void ModifyDeleteProduct_Click(object sender, EventArgs e)
+        {
+            //TODO: Edit product information or Ddelete product from database.
+        }
+
+        protected void ChangeOrderStatusButton_Click(object sender, EventArgs e)
+        {
+            //TODO: Change status of an order.
         }
     }
 }

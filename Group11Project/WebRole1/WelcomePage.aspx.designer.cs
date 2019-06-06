@@ -157,6 +157,24 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.LinkButton AddProductButton;
         
         /// <summary>
+        /// ModifyDeleteProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ModifyDeleteProduct;
+        
+        /// <summary>
+        /// ChangeOrderStatusButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ChangeOrderStatusButton;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -166,12 +184,30 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// FunctionButton control.
+        /// ViewCartButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton FunctionButton;
+        protected global::System.Web.UI.WebControls.LinkButton ViewCartButton;
+        
+        /// <summary>
+        /// ViewCurrentOrdersButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ViewCurrentOrdersButton;
+        
+        /// <summary>
+        /// OrdersHistoryButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton OrdersHistoryButton;
     }
 }
