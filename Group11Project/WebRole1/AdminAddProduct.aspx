@@ -152,24 +152,25 @@
             
             <script type="text/javascript">
                 function validate() {
-                    var name = document.getElementById("NameText").value;
+                    var productname = document.getElementById("NameText").value;
                     var category = document.getElementById("CategoryText").value;
                     var description = document.getElementById("DescriptionText").value;
-                    //var url = document.getElementById("ImageURLText").value;
+                    var imageurl = document.getElementById("ImageURLText").value;
                     var price = document.getElementById("PriceText").value;
                     var pricepattern = /^\d+(?:\.\d{0,2})$/;
+                    var urlpattern = /\.(jpeg|jpg|gif|png)$/;
 
-                    if (name == "") {
+                    if (productname == "") {
                         alert("Name cannot be empty");
                         return false;
                     }
 
-                    if (name != "") {
-                        if (name.length < 2 || name.length > 50) {
+                    if (productname != "") {
+                        if (productname.length < 2 || productname.length > 50) {
                             alert("Name can only have 2-50 characters");
                             return false;
                         }
-                        return true;
+                        
                     }
 
                     if (category == "") {
@@ -182,9 +183,9 @@
                             alert("Category can only have max 20 characters");
                             return false;
                         }
-                        return true;
+                        
                     }
-
+                    
                     if (description == "") {
                         alert("Description cannot be empty");
                         return false;
@@ -195,7 +196,20 @@
                             alert("Description can only have max 200 characters");
                             return false;
                         }
-                        return true;
+                        
+                    }
+
+                    if (imageurl == "") {
+                        alert("Image cannot be empty");
+                        return false;
+                    }
+
+                    if (imageurl != "") {
+                        if (!imageurl.match(urlpattern)) {
+                            alert("Invalid Image URL");
+                            return false;
+                        }
+                        
                     }
 
                     if (price == "") {
@@ -205,11 +219,12 @@
 
                     if (price != "") {
                         if (!price.match(pricepattern)) {
-                            alert("Price must be in decimal form");
+                            alert("Price must be in decimal form with 2 decimal places");
                             return false;
                         }
                         return true;
                     }
+                    
                 }
 
             </script>

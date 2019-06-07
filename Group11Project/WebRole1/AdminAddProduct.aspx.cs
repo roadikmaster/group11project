@@ -81,7 +81,7 @@ namespace WebRole1
                 cmd.Parameters.Add(new SqlParameter("url", url));
                 cmd.Parameters.Add(new SqlParameter("description", description));
                 cmd.Parameters.Add(new SqlParameter("price", price));
-                cmd.Parameters.Add(new SqlParameter("isDeleted", 0));
+                cmd.Parameters.Add(new SqlParameter("isDeleted", "0"));
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -91,7 +91,7 @@ namespace WebRole1
             }
             catch (SqlException ee)
             {
-                MessageLabel.Text = "Failed to add Product. Product already existed in the Shop.";
+                MessageLabel.Text = "Failed to add product. Product already existed in the shop";
             }
 
             

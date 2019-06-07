@@ -13,6 +13,7 @@ namespace WebRole1
         protected void Page_Load(object sender, EventArgs e)
         {
             string username = Session["username"].ToString();
+
             ClearCart(username);
         }
 
