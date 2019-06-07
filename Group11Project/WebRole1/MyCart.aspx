@@ -132,26 +132,33 @@
             <br />
             <br />
             
-            <asp:Button ID="PayButton" runat="server"  OnClick="PayButton_Click" Text="Pay" Width="67px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
             <asp:Button ID="ClearButton" runat="server" OnClick="ClearButton_Click" Text="Clear Cart" />
+            <br />
+            <br />
+            <br />
 
             
 
     </form>
     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="business" value="group11project@test.com" />
 
-
-    <input type="hidden" name="cmd" value="_xclick" />
-    <input type="hidden" name="business" value="youremailaddress@yourdomain.com" />
-
-    <input type="hidden" name="item_name" value="Cart Orders" />
-    <input type="hidden" name="amount" value="<%= Session["sum"].ToString() %>" /> 
+        <input type="hidden" name="item_name" value="Cart Orders - <%= Session["username"].ToString() %> " />
+        <input type="hidden" name="amount" value="<%= Session["sum"].ToString() %>" /> 
         <input type="hidden" name="currency_code" value="SEK" /> 
-    <input type="submit" value="Pay with Paypal" />
-
-    <input type="hidden" name="return" value="http://localhost:51963/PaymentSuccessful.aspx" />
-    <input type="hidden" name="cancel_return" value="http://localhost:51963/PaymentFailed.aspx">
+        
+        <% if (Session["sum"].ToString().Equals("0"))
+            {
+                %>
+            <input type="submit" value="Pay with Paypal" disabled="disabled" />
+        <%} %>
+        <% else {%>
+            <input type="submit" value="Pay with Paypal" />
+        <%} %>
+        <input type="hidden" name="return" value="http://localhost:51963/PaymentSuccessful.aspx" />
+        <input type="hidden" name="cancel_return" value="http://localhost:51963/PaymentFailed.aspx" />
 
 </form>
         

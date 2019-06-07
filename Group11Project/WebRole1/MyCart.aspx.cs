@@ -122,8 +122,8 @@ namespace WebRole1
             {
                 string text = "<p>You currently have no items in your cart</p>";
                 PlaceHolder1.Controls.Add(new Literal { Text = text });
-                PayButton.Enabled = false;
                 ClearButton.Enabled = false;
+                Session["sum"] = "0";
             }
             con.Close();
 
@@ -198,15 +198,7 @@ namespace WebRole1
         {
             Response.Redirect("MyCart.aspx");
         }
-
-        protected void PayButton_Click(object sender, EventArgs e)
-        {
-            // TODO: if cart is empty, this button should be disabled.
-            // Link to pay page.
-
-            
-        }
-
+        
         protected void ClearButton_Click(object sender, EventArgs e)
         {
             string username = Session["username"].ToString();
