@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,8 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string username = Session["username"].ToString();
+            ClearCart(username);
         }
 
 
@@ -59,6 +61,16 @@ namespace WebRole1
         protected void ViewOrderButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("ViewCurrentOrders.aspx");
+        }
+
+        protected void ClearCart(string username)
+        {
+            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"DELETE FROM CartItem WHERE cartID IN (SELECT cartID FROM Cart WHERE accountID IN (SELECT accountID FROM Account WHERE username=@username))", con);
+            cmd.Parameters.Add(new SqlParameter("username", username));
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

@@ -114,8 +114,15 @@
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="PAYMENT SUCCESSFUL"></asp:Label>
             <br />
 
-            <p style="font-family:Arial">Congratulations! Transaction complete!
+            <p style="font-family:Arial">Congratulations! Transaction complete! <br />
+                You can track your orders using the generated Order ID by clicking the button below.
             </p>
+
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="Order ID: "></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="IDLabel" runat="server" Font-Names="Arial"></asp:Label>
+            <br />
+            <br />
 
             <br />
 
