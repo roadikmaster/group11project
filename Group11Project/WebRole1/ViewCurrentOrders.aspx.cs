@@ -11,7 +11,8 @@ namespace WebRole1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //view all current orders of a user
+            //only displays orders that haven't received by the user.
         }
 
         protected void LogOutButton_Click(object sender, ImageClickEventArgs e)

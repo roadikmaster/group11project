@@ -114,7 +114,15 @@
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="YOUR CURRENT ORDERS"></asp:Label>
             <br />
 
-            <p>Upcoming feature!</p>
+            
+
+            
+
+            <br />
+            <br />
+            <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+
+            
 
             
 

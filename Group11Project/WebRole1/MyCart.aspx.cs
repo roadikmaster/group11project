@@ -12,6 +12,8 @@ namespace WebRole1
 {
     public partial class MyCart : System.Web.UI.Page
     {
+        //display the cart items in a table as well as create 2 buttons per table row
+        //one for editing the quantity, another for deleting the item from cart.
 
         double sum = 0;
 
@@ -63,10 +65,7 @@ namespace WebRole1
                 TableCell cell5;
                 TableCell cell6;
                 TableCell cell7;
-
                 
-
-
                 while (reader.Read())
                 {
                     row = new TableRow();
@@ -120,7 +119,7 @@ namespace WebRole1
 
             else
             {
-                string text = "<p>You currently have no items in your cart</p>";
+                string text = "<p style='font-family:Arial'> You currently have no items in your cart</p>";
                 PlaceHolder1.Controls.Add(new Literal { Text = text });
                 ClearButton.Enabled = false;
                 Session["sum"] = "0";
@@ -130,6 +129,8 @@ namespace WebRole1
             
         }
 
+        //remove this product from the cart
+        //refreshes the page to display the new price
         private void Deletebutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -148,6 +149,7 @@ namespace WebRole1
             Response.Redirect("MyCart.aspx");
         }
 
+        //redirect user to the product details page he/she can change quantity of the item.
         private void Editbutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -199,6 +201,7 @@ namespace WebRole1
             Response.Redirect("MyCart.aspx");
         }
         
+        //clear all contents from the cart
         protected void ClearButton_Click(object sender, EventArgs e)
         {
             string username = Session["username"].ToString();
@@ -213,6 +216,7 @@ namespace WebRole1
             Response.Redirect("MyCart.aspx");
         }
 
+        //quantity * price per quantity
         protected double multiply(double a, double b)
         {
             double result = a * b;
