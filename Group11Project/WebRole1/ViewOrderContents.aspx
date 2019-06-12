@@ -111,10 +111,45 @@
                 </div>
 
             <br />
-            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="THIS IS SKELETON PAGE PRIVATE"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="ORDER ITEM LIST"></asp:Label>
             <br />
 
-            <p>Only use this page template if the user is required to log in!</p>
+            
+
+            
+
+            <br />
+            <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Arial" Text="Order ID: "></asp:Label>
+            <asp:Label ID="IDLabel" runat="server" Font-Bold="False" Font-Names="Arial"></asp:Label>
+
+            
+
+            
+
+            <br />
+            <br />
+            <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+            <br />
+            <br />
+            <br />
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="TOTAL PRICE: "></asp:Label>
+
+            
+
+            
+
+            <asp:Label ID="PriceLabel" runat="server" Font-Bold="True" Font-Names="Arial"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="STATUS: " Font-Bold="True" Font-Names="Arial"></asp:Label>
+
+            
+
+            
+
+            <asp:Label ID="StatusLabel" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="Red"></asp:Label>
+
+            
 
             
 

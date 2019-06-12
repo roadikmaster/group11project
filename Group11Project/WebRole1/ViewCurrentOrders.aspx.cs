@@ -21,7 +21,7 @@ namespace WebRole1
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Orders WHERE accountID=@accountID and status='PAYMENT RECEIVED'", con);
+            SqlCommand cmd = new SqlCommand(@"SELECT * FROM Orders WHERE accountID=@accountID and status='PAYMENT RECEIVED' ORDER BY orderID DESC", con);
             cmd.Parameters.Add(new SqlParameter("accountID", accountID));
             SqlDataReader reader = cmd.ExecuteReader();
 
