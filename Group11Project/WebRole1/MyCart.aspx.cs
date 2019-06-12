@@ -153,7 +153,7 @@ namespace WebRole1
         private void Editbutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            Label3.Text = "Edit" + button.ID;
+            
 
             Session["cartItemID"] = button.ID;
 

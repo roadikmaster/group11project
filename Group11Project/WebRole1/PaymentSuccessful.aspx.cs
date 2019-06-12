@@ -13,47 +13,50 @@ namespace WebRole1
         protected void Page_Load(object sender, EventArgs e)
         {
             //transfer all the contents of the cart into an order list
-            
-
-
-            string username = Session["username"].ToString();
-            string accountID = GetAccountID(username);
-            string cartID = GetCartID(accountID);
-            string sum = Session["sum"].ToString();
-            
-            GenerateOrderID(accountID, sum);
-
-            string orderID = GetOrderID(accountID);
-
-
-            List<string> productIDs = new List<string>();
-            List<string> quantities = new List<string>();
-
-            SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT productID, quantity FROM CartItem WHERE cartID=@cartID", con);
-            cmd.Parameters.Add(new SqlParameter("cartID", cartID));
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            if (!IsPostBack)
             {
-                while (reader.Read())
+                string username = Session["username"].ToString();
+                string accountID = GetAccountID(username);
+                string cartID = GetCartID(accountID);
+                string sum = Session["sum"].ToString();
+
+                GenerateOrderID(accountID, sum);
+
+                string orderID = GetOrderID(accountID);
+
+
+                List<string> productIDs = new List<string>();
+                List<string> quantities = new List<string>();
+
+                SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"SELECT productID, quantity FROM CartItem WHERE cartID=@cartID", con);
+                cmd.Parameters.Add(new SqlParameter("cartID", cartID));
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    productIDs.Add(reader[0].ToString());
-                    quantities.Add(reader[1].ToString());
+                    while (reader.Read())
+                    {
+                        productIDs.Add(reader[0].ToString());
+                        quantities.Add(reader[1].ToString());
+                    }
+
+                }
+                con.Close();
+
+                for (int i = 0; i < productIDs.Count; i++)
+                {
+                    AddItemsToOrder(orderID, productIDs[i], quantities[i]);
                 }
 
-            }
-            con.Close();
+                ClearCart(username);
 
-            for (int i = 0; i < productIDs.Count; i++)
-            {
-                AddItemsToOrder(orderID, productIDs[i], quantities[i]);
+                IDLabel.Text = orderID;
             }
+
+
             
-            ClearCart(username);
-
-            IDLabel.Text = orderID;
         }
 
 
@@ -119,7 +122,7 @@ namespace WebRole1
         {
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO [Order](accountID, totalPrice, status) VALUES (@accountID, @totalprice, @status) ", con);
+            SqlCommand cmd = new SqlCommand(@"SET NOCOUNT ON;INSERT INTO Orders(accountID, totalPrice, status) VALUES (@accountID, @totalprice, @status) ", con);
             cmd.Parameters.Add(new SqlParameter("accountID", id));
             cmd.Parameters.Add(new SqlParameter("totalprice", totalprice));
             cmd.Parameters.Add(new SqlParameter("status", "PAYMENT RECEIVED"));
@@ -155,7 +158,7 @@ namespace WebRole1
         {
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT MAX(orderID) FROM [Order] WHERE accountID=@accountID", con);
+            SqlCommand cmd = new SqlCommand(@"SELECT MAX(orderID) FROM Orders WHERE accountID=@accountID", con);
             cmd.Parameters.Add(new SqlParameter("accountID", accountID));
             SqlDataReader reader = cmd.ExecuteReader();
 

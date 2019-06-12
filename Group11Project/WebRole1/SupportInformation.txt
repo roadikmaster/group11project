@@ -1,1 +1,1 @@
-support@group11project.se
+<p style='font-family:Arial'>support@group11project.se</p>
