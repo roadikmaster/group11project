@@ -88,9 +88,7 @@ namespace WebRole1
 
         protected void OrdersHistoryButton_Click(object sender, EventArgs e)
         {
-            //TODO: View customer's past/completed orders.
-            //Initial Page should only contain the order list, when customer clicked one
-            //of the orders, it should display all the items in that order in a separate page.
+            Response.Redirect("ViewOrdersHistory.aspx");
         }
 
         protected void ModifyDeleteProduct_Click(object sender, EventArgs e)

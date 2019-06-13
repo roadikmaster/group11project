@@ -154,7 +154,7 @@
 
             <br />
             <br />
-            <asp:LinkButton  ID="LinkButton1" OnClientClick="return showcontent1(event)" runat="server">View Contact Information</asp:LinkButton>
+            <asp:LinkButton  ID="LinkButton1" OnClientClick="return showcontent1(event)" runat="server" Font-Names="Arial">View Contact Information</asp:LinkButton>
             <br />
 
             <p id="ContentText1"></p><br />
@@ -181,7 +181,7 @@
             <br />
           
 
-            <asp:LinkButton ID="ViewContact" runat="server" OnClientClick="return showcontent(event)">View Credits</asp:LinkButton>
+            <asp:LinkButton ID="ViewContact" runat="server" OnClientClick="return showcontent(event)" Font-Names="Arial">View Credits</asp:LinkButton>
             <p id="ContentText"></p>
 
             <script type="text/javascript">

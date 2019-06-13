@@ -121,7 +121,6 @@
     <Content Include="SkeletonPagePrivate.aspx" />
     <Content Include="SkeletonPagePublic.aspx" />
     <Content Include="SupportInformation.txt" />
-    <Content Include="TempFunction.aspx" />
     <Content Include="ViewCurrentOrders.aspx" />
     <Content Include="ViewOrderContents.aspx" />
     <Content Include="ViewOrdersHistory.aspx" />
@@ -262,13 +261,6 @@
     </Compile>
     <Compile Include="SkeletonPagePublic.aspx.designer.cs">
       <DependentUpon>SkeletonPagePublic.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TempFunction.aspx.cs">
-      <DependentUpon>TempFunction.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TempFunction.aspx.designer.cs">
-      <DependentUpon>TempFunction.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCurrentOrders.aspx.cs">
       <DependentUpon>ViewCurrentOrders.aspx</DependentUpon>
