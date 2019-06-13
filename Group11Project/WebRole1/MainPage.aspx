@@ -89,6 +89,13 @@
             left: 658px;
             top: 29px;
         }
+        .auto-style17 {
+            position: absolute;
+            top: 24px;
+            left: 15px;
+            right: 946px;
+            width: 43px;
+        }
     </style>
 </head>
 <body>
@@ -101,7 +108,7 @@
             
                 <p class="auto-style1">
             
-                &nbsp;&nbsp;<asp:ImageButton style="position:absolute; top: 24px; left: 15px; right: 531px;" ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx"  Width="183px" />
+                &nbsp;&nbsp;<asp:ImageButton ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx" CssClass="auto-style17" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                     <%if (Session["username"] == null)
                     {%>
@@ -143,12 +150,13 @@
 
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="HELLO!"></asp:Label>
 
-            <br />
-            <br />
-            Welcome to CoffeeIOT, 
-
-            an interactive Coffee Machine app that can automate brewing of<br />
-            your coffee machine minutes before your morning starts.<br />
+            
+            <p style="font-family:Arial">
+                Welcome to Blue Vial Pharmacy!</p>
+            <p style="font-family:Arial">
+                We sell only genuine non-prescription drugs ONLINE!<br />
+            </p>
+            
             <br />
             
             

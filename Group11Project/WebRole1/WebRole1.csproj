@@ -124,6 +124,7 @@
     <Content Include="TempFunction.aspx" />
     <Content Include="ViewCurrentOrders.aspx" />
     <Content Include="ViewOrderContents.aspx" />
+    <Content Include="ViewOrdersHistory.aspx" />
     <Content Include="Web.config" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
@@ -282,6 +283,13 @@
     </Compile>
     <Compile Include="ViewOrderContents.aspx.designer.cs">
       <DependentUpon>ViewOrderContents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrdersHistory.aspx.cs">
+      <DependentUpon>ViewOrdersHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewOrdersHistory.aspx.designer.cs">
+      <DependentUpon>ViewOrdersHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebRole.cs" />
     <Compile Include="WelcomePage.aspx.cs">
