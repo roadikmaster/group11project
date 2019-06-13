@@ -101,7 +101,7 @@ namespace WebRole1
 
                     cell7 = new TableCell();
                     Button deletebutton = new Button();
-                    deletebutton.ID = reader[1].ToString();
+                    deletebutton.ID = "D" + reader[0].ToString();
                     deletebutton.Text = "Delete";
                     deletebutton.Click += new EventHandler(this.Deletebutton_Click);
                     cell7.Controls.Add(deletebutton);
@@ -136,13 +136,23 @@ namespace WebRole1
             Button button = sender as Button;
 
             string username = Session["username"].ToString();
-            string productname = button.ID;
+            
+            string value = button.ID;
+            char[] extract = value.ToCharArray();
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 1; i < extract.Length; i++)
+            {
+                sb.Append(extract[i]);
+            }
+
+            string productID = sb.ToString();
 
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"DELETE FROM CartItem WHERE cartID IN (SELECT cartID FROM Cart WHERE accountID IN (SELECT accountID FROM Account WHERE username=@username) AND productID IN (SELECT productID FROM Product WHERE name=@productname))", con);
+            SqlCommand cmd = new SqlCommand(@"DELETE FROM CartItem WHERE cartID IN (SELECT cartID FROM Cart WHERE accountID IN (SELECT accountID FROM Account WHERE username=@username) AND productID=@productID)", con);
             cmd.Parameters.Add(new SqlParameter("username", username));
-            cmd.Parameters.Add(new SqlParameter("productname", productname));
+            cmd.Parameters.Add(new SqlParameter("productID", productID));
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -153,7 +163,9 @@ namespace WebRole1
         private void Editbutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
+
             
+
 
             Session["cartItemID"] = button.ID;
 
