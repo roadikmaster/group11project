@@ -85,8 +85,6 @@ namespace WebRole1
             con.Close();
         }
 
-
-
         protected void RegisterButton_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("Register.aspx");
@@ -101,31 +99,6 @@ namespace WebRole1
         protected void UserAccountButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("WelcomePage.aspx");
-        }
-
-        protected void HomeButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("MainPage.aspx");
-        }
-
-        protected void FeaturesButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Features.aspx");
-        }
-
-        protected void AboutUsButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AboutUsPage.aspx");
-        }
-
-        protected void ContactButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ContactPage.aspx");
-        }
-
-        protected void ShopButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Shop.aspx");
         }
 
         protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)

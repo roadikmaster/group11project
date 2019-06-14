@@ -24,30 +24,6 @@
             height: 53px;
             width: 1350px;
         }
-        .auto-style8 {
-            text-decoration: none;
-            position: absolute;
-            left: 240px;
-            top: 29px;
-        }
-        .auto-style9 {
-            text-decoration:none;
-            position: absolute;
-            left: 313px;
-            top: 29px;
-        }
-        .auto-style10 {
-            text-decoration:none;
-            position: absolute;
-            left: 430px;
-            top: 29px;
-        }
-        .auto-style11 {
-            text-decoration:none;
-            position: absolute;
-            left: 544px;
-            top: 29px;
-        }
         .auto-style13 {
             position: absolute;
             left: 1153px;
@@ -59,38 +35,50 @@
             left: 958px;
             top: 29px;
         }
-        .auto-style15 {
-            text-decoration:none;
-            position: absolute;
-            left: 658px;
-            top: 29px;
+        .menu ul
+        {
+            width:150px;
+        }
+        .menu ul li
+        {
+            background-color: black;
+            text-decoration: none;
+            padding: 8px;
+            margin: 3px;
+        }
+        .menu ul li a
+        {
+            color:#6699FF;
+        }
+        .menu ul li a:hover
+        {
+            font-weight:bold;
         }
         
-        .auto-style16 {
-            margin-left: 0px;
-        }
-        
-        .auto-style17 {
-            position: absolute;
-            top: 24px;
-            left: 15px;
-            right: 942px;
-            width: 43px;
-        }
         
         </style>
 </head>
 <body>
     <body bgcolor="#B6B6B6">
         <form id="form1" runat="server" class="auto-style7">
-        
-        
-            
             <div style="background-color:black;" id="Div1" runat="server" class="auto-style6">
-            
+                <asp:Menu ID="Menu1" runat="server" style="font-family:Arial Black" Orientation="Horizontal" CssClass="menu" StaticSubMenuIndent="16px" >
+                    <Items>
+                        <asp:MenuItem ImageUrl="~/ImageAssets/CoffeeMachineLogo.png"  NavigateUrl="MainPage.aspx" />
+                        <asp:MenuItem Text="HOME" NavigateUrl="MainPage.aspx" />
+                        <asp:MenuItem Text="FEATURES" NavigateUrl="Features.aspx" />
+                        <asp:MenuItem Text="ABOUT US" NavigateUrl="AboutUsPage.aspx" />
+                        <asp:MenuItem Text="CONTACT" NavigateUrl="ContactPage.aspx" />
+                        <asp:MenuItem Text="SHOP" NavigateUrl="Shop.aspx" />
+
+                        
+                    </Items>
+
+                </asp:Menu>
+
                 <p class="auto-style1">
             
-                &nbsp;&nbsp;<asp:ImageButton ID="HomePageButton" runat="server" Height="32px" ImageUrl="~/ImageAssets/CoffeeMachineLogo.png" PostBackUrl="~/MainPage.aspx" CssClass="auto-style17" />
+                &nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                                   
                     <%
@@ -107,11 +95,6 @@
                     <asp:ImageButton ID="ViewMyCartButton" runat="server" Height="42px" ImageUrl="~/ImageAssets/ViewMyCart.png" Width="79px" OnClick="ViewMyCartButton_Click" CssClass="auto-style4" />
                    
                 <br />
-                    <asp:LinkButton ID="HomeButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style8" OnClick="HomeButton_Click">HOME</asp:LinkButton>
-                    <asp:LinkButton ID="FeaturesButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style9" OnClick="FeaturesButton_Click">FEATURES</asp:LinkButton>
-                    <asp:LinkButton ID="AboutUsButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style10" OnClick="AboutUsButton_Click">ABOUT US</asp:LinkButton>
-                    <asp:LinkButton ID="ContactButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style11"  OnClick="ContactButton_Click">CONTACT</asp:LinkButton>
-                    <asp:LinkButton ID="ShopButton" runat="server" Font-Names="Arial Black" ForeColor="#6699FF" CssClass="auto-style15" OnClick="ShopButton_Click">SHOP</asp:LinkButton>
                 <br />
                     
                 <br />&nbsp;
@@ -130,11 +113,11 @@
             <br />
             <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="Product Name: (2-50 characters)"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="NameText" runat="server" CssClass="auto-style16" Width="246px"></asp:TextBox>
+            <asp:TextBox ID="NameText" runat="server" Width="239px"></asp:TextBox>
             <br />
             <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial" Text="Category: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="CategoryText" runat="server" Width="241px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="CategoryText" runat="server" Width="241px" ></asp:TextBox>
             <br />
             <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Arial" Text="Description: (max 200 characters)"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
