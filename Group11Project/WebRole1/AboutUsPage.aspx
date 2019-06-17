@@ -140,8 +140,13 @@
 
             <br />
             <br />
-            We, the Group 11 Cloud Programming Course, are dedicated to make our project simple to use<br />
-            with simple tutorials and user friendly GUI.</form>
+            <p style="font-family:Arial">
+                Blue Vial Pharmacy was established in 2019 with a purpose of selling genuine non-prescription medications <br />
+                and other essentials to all people of all ages <b><u>ONLINE!</u></b>. <br /><br />
+                We, the Blue Vial Pharmacy will strive to provide the best quality services and products to ensure the safety <br />
+                of consumers.
+            </p>
+            </form>
         
         
 </body>

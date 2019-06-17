@@ -1,4 +1,5 @@
-<p style="font-family:Arial">Viktor Ingvarsson <br>
+<p style="font-family:Arial">
+Viktor Ingvarsson <br>
 Jenny Sheng <br>
 Lennart Jagervi
 </p>

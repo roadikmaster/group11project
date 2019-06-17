@@ -137,6 +137,46 @@
             <br />
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="FEATURES"></asp:Label>
 
+            <br />
+            <br />
+            <p style="font-family:Arial">
+                <b> FAST DELIVERY! </b> <br /><br />
+                Our medications will be delivered to your home within maximum of 5 working days.&nbsp;
+            </p>
+            <p style="font-family:Arial">
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <img src="ImageAssets/DeliveryBox.png" style="position:center"/></p>
+            <p style="font-family:Arial">
+                <b> TRACK YOUR CURRENT AND PAST ORDERS! </b> <br /><br />
+                You can check your current status of each orders you made as well as view the contents <br />
+                of each order you made.
+            </p>
+            <p style="font-family:Arial">
+                
+
+                <img src="ImageAssets/CurrentOrdersAdvert.png" style="position:center"/></p>
+            <p style="font-family:Arial">
+                
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+
+                <img src="ImageAssets/OrderItemListAdvert.png" style="position:center"/></p>
+            <br />
+            <br />
+            <p style="font-family:Arial">
+                <b> PAY YOUR ORDERS VIA PAYPAL! </b> <br /><br />
+                Paying your orders have made easier and safer thanks to our partnership with PayPal.
+            </p>
+            <p style="font-family:Arial">
+                
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+
+                <img src="ImageAssets/PayPalLogo.png" style="position:center"/></p>
     </form>
         
         

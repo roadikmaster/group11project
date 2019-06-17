@@ -1,1 +1,4 @@
-<p style='font-family:Arial'>support@group11project.se</p>
+<p style="font-family:Arial">
+support@group11project.se <br>
+044-99 999 99 
+</p>
