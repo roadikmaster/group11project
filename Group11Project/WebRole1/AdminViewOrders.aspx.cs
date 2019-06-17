@@ -13,5 +13,21 @@ namespace WebRole1
         {
 
         }
+
+        protected void LogOutButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["username"] = null;
+            Server.Transfer("MainPage.aspx");
+        }
+
+        protected void UserAccountButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WelcomePage.aspx");
+        }
+
+        protected void ViewMyCartButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MyCart.aspx");
+        }
     }
 }

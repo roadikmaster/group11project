@@ -73,7 +73,7 @@ namespace WebRole1
 
         protected void ChangeOrderStatusButton_Click(object sender, EventArgs e)
         {
-            //TODO: Change status of an order.
+            Response.Redirect("AdminChangeOrderStatus.aspx");
         }
     }
 }
