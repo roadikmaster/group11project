@@ -116,8 +116,14 @@
             <asp:TextBox ID="NameText" runat="server" Width="239px"></asp:TextBox>
             <br />
             <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial" Text="Category: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="CategoryText" runat="server" Width="241px" ></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="CategoryList" runat="server">
+                <asp:ListItem>-Select-</asp:ListItem>
+                <asp:ListItem>Medicine</asp:ListItem>
+                <asp:ListItem>Hygiene</asp:ListItem>
+                <asp:ListItem>Dietary Supplement</asp:ListItem>
+                <asp:ListItem>Others</asp:ListItem>
+            </asp:DropDownList>
             <br />
             <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Arial" Text="Description: (max 200 characters)"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -144,7 +150,8 @@
             <script type="text/javascript">
                 function validate() {
                     var productname = document.getElementById("NameText").value;
-                    var category = document.getElementById("CategoryText").value;
+                    var categorylist = document.getElementById("CategoryList");
+                    var category = categorylist.options[categorylist.selectedIndex].value;
                     var description = document.getElementById("DescriptionText").value;
                     var imageurl = document.getElementById("ImageURLText").value;
                     var price = document.getElementById("PriceText").value;
@@ -164,18 +171,12 @@
                         
                     }
 
-                    if (category == "") {
-                        alert("Category cannot be empty");
+                    if (category == "-Select-") {
+                        alert("Please choose a category");
                         return false;
                     }
 
-                    if (category != "") {
-                        if (category.length > 20) {
-                            alert("Category can only have max 20 characters");
-                            return false;
-                        }
-                        
-                    }
+                    
                     
                     if (description == "") {
                         alert("Description cannot be empty");

@@ -143,11 +143,25 @@
             <br />
             <br />
             
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="Keyword: "></asp:Label>
+&nbsp;&nbsp;&nbsp;
+            
             <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" OnClick="SearchButton_Click" Text="Search" />
             
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;<br />
+            <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial" Text="Category: "></asp:Label>
+&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="CategoryList" runat="server" Height="18px" Width="156px">
+                <asp:ListItem>All</asp:ListItem>
+                <asp:ListItem>Medicine</asp:ListItem>
+                <asp:ListItem>Hygiene</asp:ListItem>
+                <asp:ListItem>Dietary Supplement</asp:ListItem>
+                <asp:ListItem>Others</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
             <asp:Label ID="ResultLabel" runat="server" Font-Names="Arial" ForeColor="Red"></asp:Label>
             <br />
             

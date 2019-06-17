@@ -11,7 +11,8 @@ namespace WebRole1
 {
     public partial class Shop : System.Web.UI.Page
     {
-        
+        //lists all items in the shop in table form as well as 
+        //generate one button in every table row that view the product details.
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -156,29 +157,43 @@ namespace WebRole1
             Response.Redirect("MyCart.aspx");
         }
 
+        //search function based on product name and category
+        //lists all items in a new table and replaces the old table to prevent overlapping
+        //for every table row, generate one button to view the product details.
         protected void SearchButton_Click(object sender, EventArgs e)
         {
 
             PlaceHolder1.Controls.Clear();
 
             string keyword = SearchText.Text;
-            string category = "Drink";
+            string category = CategoryList.SelectedItem.Value;
 
-            
-            
             
             SqlConnection con = new SqlConnection("Server=tcp:ljagervidb.database.windows.net,1433;Initial Catalog=group11projectDB;Persist Security Info=False;User ID=rootroot;Password=Root1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
             SqlCommand cmd;
             
-            if (keyword.Equals(""))
+            if (keyword.Equals("") && category.Equals("All"))
             {
                 cmd = new SqlCommand(@"SELECT * FROM Product WHERE isDeleted=0", con);
             }
+
+            else if (!keyword.Equals("") && category.Equals("All"))
+            {
+                cmd = new SqlCommand(@"SELECT * FROM Product WHERE name like @productname AND isDeleted=0", con);
+                cmd.Parameters.Add(new SqlParameter("productname", keyword + "%"));
+            }
+
+            else if (keyword.Equals("") && !category.Equals("All"))
+            {
+                cmd = new SqlCommand(@"SELECT * FROM Product WHERE category=@category AND isDeleted=0", con);
+                cmd.Parameters.Add(new SqlParameter("category", category));
+            }
+
             else
             {
-                cmd = new SqlCommand(@"SELECT * FROM Product WHERE name=@productname AND category=@category AND isDeleted=0", con);
-                cmd.Parameters.Add(new SqlParameter("productname", keyword));
+                cmd = new SqlCommand(@"SELECT * FROM Product WHERE name like @productname AND category=@category AND isDeleted=0", con);
+                cmd.Parameters.Add(new SqlParameter("productname", keyword + "%"));
                 cmd.Parameters.Add(new SqlParameter("category", category));
             }
             

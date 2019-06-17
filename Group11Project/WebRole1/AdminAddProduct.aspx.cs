@@ -40,7 +40,7 @@ namespace WebRole1
         protected void AddButton_Click(object sender, EventArgs e)
         {
             string name = NameText.Text;
-            string category = CategoryText.Text;
+            string category = CategoryList.SelectedItem.Value;
             string description = DescriptionText.Text;
             string url = ImageURLText.Text;
             string price = PriceText.Text;
