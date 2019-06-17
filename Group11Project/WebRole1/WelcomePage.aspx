@@ -124,6 +124,8 @@
                         <br />
             <asp:LinkButton ID="ModifyDeleteProduct" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ModifyDeleteProduct_Click">Modify/Remove Product</asp:LinkButton>
             <br />
+            <asp:LinkButton ID="ViewCustomerOrders" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ViewCustomerOrders_Click">View Customer Orders</asp:LinkButton>
+            <br />
             <asp:LinkButton ID="ChangeOrderStatusButton" runat="server" Font-Names="Arial" Font-Underline="False" OnClick="ChangeOrderStatusButton_Click">Change Order Status</asp:LinkButton>
                         <br />
                         <br />

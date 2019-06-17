@@ -95,9 +95,7 @@ namespace WebRole1
         private void Viewbutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-
             Session["orderID"] = button.ID;
-
             Response.Redirect("ViewOrderContents.aspx");
         }
 

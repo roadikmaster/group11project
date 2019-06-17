@@ -223,7 +223,7 @@ namespace WebRole1
                 TableHeaderCell header5 = new TableHeaderCell();
                 header5.Text = "Details";
                 header.Cells.Add(header5);
-
+                    
 
                 TableRow row;
                 TableCell cell1;
@@ -234,7 +234,6 @@ namespace WebRole1
                 while (reader.Read())
                 {
                     
-
                     row = new TableRow();
 
                     cell1 = new TableCell();

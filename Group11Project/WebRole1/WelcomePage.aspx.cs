@@ -68,12 +68,17 @@ namespace WebRole1
 
         protected void ModifyDeleteProduct_Click(object sender, EventArgs e)
         {
-            //TODO: Edit product information or Ddelete product from database.
+            Response.Redirect("AdminModifyProduct.aspx");
         }
 
         protected void ChangeOrderStatusButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminChangeOrderStatus.aspx");
+        }
+
+        protected void ViewCustomerOrders_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminViewOrders.aspx");
         }
     }
 }

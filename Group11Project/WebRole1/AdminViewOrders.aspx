@@ -111,7 +111,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox runat="server" ID="IDText"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="SearchButton" runat="server" OnClientClick="return validate()" Text="Search" />
+            <asp:Button ID="SearchButton" runat="server" OnClientClick="return validate()" Text="Search" OnClick="SearchButton_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label4" runat="server" Font-Names="Arial" Text="(This can be left empty if searching for everything)"></asp:Label>
             <br />
@@ -124,7 +124,7 @@
             &nbsp;<br />
             <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Names="Arial" Text="Order Status: "></asp:Label>
             <br />
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" style="font-family:Arial" Height="16px" Width="527px">
+            <asp:RadioButtonList ID="StatusList" runat="server" RepeatDirection="Horizontal" style="font-family:Arial" Height="16px" Width="527px">
                 <asp:ListItem Selected="True">All</asp:ListItem>
                 <asp:ListItem>Payment Received</asp:ListItem>
                 <asp:ListItem>Completed</asp:ListItem>
