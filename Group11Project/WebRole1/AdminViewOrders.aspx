@@ -108,28 +108,29 @@
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="ID: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox runat="server" ID="IDText"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" OnClientClick="return validate()" Text="Search" OnClick="SearchButton_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label4" runat="server" Font-Names="Arial" Text="(This can be left empty if searching for everything)"></asp:Label>
             <br />
-            <br />
             <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial" Text="ID Type: "></asp:Label>
-            <asp:RadioButtonList ID="IDList" runat="server" RepeatDirection="Horizontal" style="font-family:Arial" Height="16px" Width="290px">
-                <asp:ListItem Selected="True">Account ID</asp:ListItem>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;<asp:DropDownList ID="IDList" runat="server">
+                <asp:ListItem>Account ID</asp:ListItem>
                 <asp:ListItem>Order ID</asp:ListItem>
-            </asp:RadioButtonList>
-            &nbsp;<br />
-            <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Names="Arial" Text="Order Status: "></asp:Label>
+            </asp:DropDownList>
             <br />
-            <asp:RadioButtonList ID="StatusList" runat="server" RepeatDirection="Horizontal" style="font-family:Arial" Height="16px" Width="527px">
-                <asp:ListItem Selected="True">All</asp:ListItem>
-                <asp:ListItem>Payment Received</asp:ListItem>
-                <asp:ListItem>Completed</asp:ListItem>
-                <asp:ListItem>Cancelled</asp:ListItem>
-            </asp:RadioButtonList>
+            <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Names="Arial" Text="Order Status: "></asp:Label>
+            &nbsp;
+            <asp:DropDownList ID="StatusList" runat="server">
+                <asp:ListItem>ALL</asp:ListItem>
+                <asp:ListItem>PAYMENT RECEIVED</asp:ListItem>
+                <asp:ListItem>COMPLETED</asp:ListItem>
+                <asp:ListItem>CANCELLED</asp:ListItem>
+            </asp:DropDownList>
+            <br />
             <br />
             <asp:Label ID="ResultLabel" runat="server" Font-Names="Arial" ForeColor="Red"></asp:Label>
             <br />

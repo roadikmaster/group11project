@@ -127,7 +127,7 @@ namespace WebRole1 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList IDList;
+        protected global::System.Web.UI.WebControls.DropDownList IDList;
         
         /// <summary>
         /// Label5 control.
@@ -145,7 +145,7 @@ namespace WebRole1 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList StatusList;
+        protected global::System.Web.UI.WebControls.DropDownList StatusList;
         
         /// <summary>
         /// ResultLabel control.
