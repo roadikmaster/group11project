@@ -6,9 +6,23 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" href="styles.css" />
+    
+    
+    
+    <style type="text/css">
+        .auto-style16 {
+            position: absolute;
+            left: 111px;
+            top: 157px;
+            right: 598px;
+        }
+    </style>
+    
+    
+    
 </head>
 <body>
-        <form id="form1" runat="server" class="auto-style7">
+        <form id="form1" runat="server" class="auto-style7" style="vertical-align:top">
             <div style="background-color:black;" id="Div1" runat="server" class="auto-style6">
                 <asp:Menu ID="Menu1" runat="server" style="font-family:Arial Black" Orientation="Horizontal" CssClass="menu" StaticSubMenuIndent="16px" >
                     <Items>
@@ -55,6 +69,10 @@
             <br />
             <asp:Label ID="Label1" runat="server" Font-Names="Arial Black" Font-Size="X-Large" Text="CART"></asp:Label>
             <br />
+            <br />
+            
+            
+            <asp:Button ID="ClearButton" runat="server" OnClick="ClearButton_Click" Text="Clear Cart" />
             
             <br />
             <br />
@@ -68,15 +86,13 @@
             <br />
             
             
-            <asp:Button ID="ClearButton" runat="server" OnClick="ClearButton_Click" Text="Clear Cart" />
-            <br />
             <br />
             <br />
 
             
 
     </form>
-    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <form id="form2" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" class="auto-style16">
         <input type="hidden" name="cmd" value="_xclick" />
         <input type="hidden" name="business" value="group11project@test.com" />
 
@@ -95,8 +111,9 @@
         <input type="hidden" name="return" value="http://localhost:51963/PaymentSuccessful.aspx" />
         <input type="hidden" name="cancel_return" value="http://localhost:51963/PaymentFailed.aspx" />
 
-</form>
-</body>
+    </form>
+       
+    </body>
 </html>
 
 
