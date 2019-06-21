@@ -5,81 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        #form1 {
-            height: 53px;
-        }
-        .auto-style1 {
-            margin-left: 240px;
-        }
-        .auto-style2 {
-            position: absolute;
-            left: 1002px;
-            top: 43px;
-        }
-        .auto-style3 {
-            position: absolute;
-            left: 1002px;
-            top: 19px;
-        }
-        .auto-style4 {
-            position: absolute;
-            left: 1243px;
-            top: 19px;
-        }
-        .auto-style5 {
-            position: absolute;
-            left: 1154px;
-            top: 19px;
-            right: 35px;
-        }
-        .auto-style6 {
-            height: 78px;
-        }
-        .auto-style12 {
-            width: 1350px;
-        }
-        .auto-style13 {
-            position: absolute;
-            left: 1153px;
-            top: 19px;
-        }
-        .auto-style14 {
-            position: absolute;
-            text-align:right;
-            left: 958px;
-            top: 29px;
-        }
-        .auto-style15 {
-            position: absolute;
-            left: 1003px;
-            top: 70px;
-            width: 227px;
-            height: 19px;
-        }
-        .menu ul
-        {
-            width:150px;
-        }
-        .menu ul li
-        {
-            background-color: black;
-            text-decoration: none;
-            padding: 8px;
-            margin: 3px;
-        }
-        .menu ul li a
-        {
-            color:#6699FF;
-        }
-        .menu ul li a:hover
-        {
-            font-weight:bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <body bgcolor="#B6B6B6">
     <form id="form1" runat="server" class="auto-style12">
         <div style="background-color:black;" id="Div1" runat="server" class="auto-style6">
             <asp:Menu ID="Menu1" runat="server" style="font-family:Arial Black" Orientation="Horizontal" CssClass="menu" StaticSubMenuIndent="16px" >

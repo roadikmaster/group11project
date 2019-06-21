@@ -127,6 +127,7 @@
     <Content Include="Shop.aspx" />
     <Content Include="SkeletonPagePrivate.aspx" />
     <Content Include="SkeletonPagePublic.aspx" />
+    <Content Include="styles.css" />
     <Content Include="SupportInformation.txt" />
     <Content Include="ViewCurrentOrders.aspx" />
     <Content Include="ViewOrderContents.aspx" />
