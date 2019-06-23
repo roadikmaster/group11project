@@ -70,7 +70,7 @@
         <br />
         <br />
         <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Arial" Text="Search Mode:"></asp:Label>
-        <asp:RadioButtonList ID="SearchList" runat="server" RepeatDirection="Horizontal" CssClass="auto-style15" Font-Names="Arial" >
+        <asp:RadioButtonList ID="SearchList" runat="server" RepeatDirection="Horizontal" Font-Names="Arial" >
             <asp:ListItem Selected="True" Text="ID" Value="ID">ID</asp:ListItem>
             <asp:ListItem Text="Username" Value="Username">Username</asp:ListItem>
         </asp:RadioButtonList>

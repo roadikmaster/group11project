@@ -64,7 +64,8 @@
             
             
         <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Arial" Text="Email:"></asp:Label>
-        <asp:TextBox ID="EmailText" runat="server" CssClass="auto-style15" ></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="EmailText" runat="server" ></asp:TextBox>
             
             
         <br />
